@@ -26,14 +26,7 @@ class TestController extends Controller
                 ),
             );
         });
-
-        $producer->success(function ($result) {
-            var_dump($result);
-        });
-        $producer->error(function ($errorCode) {
-            var_dump($errorCode);
-        });
-        $producer->send(true);
+        dd($producer);
     }
 
     public function consumer()

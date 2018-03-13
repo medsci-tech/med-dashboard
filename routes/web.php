@@ -14,7 +14,15 @@
 /*
     * 前端路由，交由vue-router，注意放在最后！
 */
-Route::resource('kafka','Kafka\TestController');
+
+Route::get('kafka/producer', [
+    'as' => 'producer', 'uses' => 'Kafka\TestController@producer'
+]);
+
+Route::get('kafka/consumer', [
+    'as' => 'consumer', 'uses' => 'Kafka\TestController@consumer'
+]);
+
 Route::any('/{any?}', function () {
     return view('app');
 })->name('home')->where('any','.*');

@@ -36,7 +36,7 @@ class TestController extends Controller
         $config->setMetadataBrokerList('172.21.0.13:9092');
         $config->setGroupId('test');
         $config->setBrokerVersion('0.8.2.1');
-        $config->setTopics(array('test'));
+        $config->setTopics(array('doc_ant_web'));
         //$config->setOffsetReset('earliest');
         $consumer = new \Kafka\Consumer();
         $consumer->start(function ($topic, $part, $message) {

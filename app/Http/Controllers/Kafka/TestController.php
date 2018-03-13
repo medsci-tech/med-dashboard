@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use Kafka\Config;
 use Kafka\Producer;
 use Kafka\ProducerConfig;
+use Kafka\Consumer;
+use Kafka\ConsumerConfig;
 
 class TestController extends Controller
 {
@@ -40,14 +42,15 @@ class TestController extends Controller
 
     public function consumer()
     {
-        $config = \Kafka\ConsumerConfig::getInstance();
+
+        $config = ConsumerConfig::getInstance();
         $config->setMetadataRefreshIntervalMs(10000);
         $config->setMetadataBrokerList('172.21.0.13:9092');
         $config->setGroupId('test');
         $config->setBrokerVersion('0.8.2.1');
-        $config->setTopics(array('doc_ant_web'));
-        //$config->setOffsetReset('earliest');
-        $consumer = new \Kafka\Consumer();
+        $config->setTopics(['doc_ant_web']);
+        $config->setOffsetReset('earliest');
+        $consumer = new Consumer();
         $consumer->start(function ($topic, $part, $message) {
             var_dump($message);
         });

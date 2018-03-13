@@ -33,7 +33,7 @@ class TestController extends Controller
     {
         $config = \Kafka\ConsumerConfig::getInstance();
         $config->setMetadataRefreshIntervalMs(10000);
-        $config->setMetadataBrokerList('10.13.4.159:9192');
+        $config->setMetadataBrokerList('172.21.0.13:9092');
         $config->setGroupId('test');
         $config->setBrokerVersion('0.8.2.1');
         $config->setTopics(array('test'));

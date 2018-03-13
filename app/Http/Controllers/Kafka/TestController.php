@@ -25,7 +25,7 @@ class TestController extends Controller
         $producer = new Producer(function () {
             return [
                 [
-                    'topic' => 'doc_ant_web',
+                    'topic' => 'doc_ant_wechat',
                     'value' => time(),
                     'key' => date('yyyy-mmm-dd'),
                 ],
@@ -48,8 +48,8 @@ class TestController extends Controller
         $config->setMetadataBrokerList('172.21.0.13:9092');
         $config->setGroupId('test');
         $config->setBrokerVersion('0.8.2.1');
-        $config->setTopics(['doc_ant_web']);
-        $config->setOffsetReset('earliest');
+        $config->setTopics(['doc_ant_wechat']);
+        //$config->setOffsetReset('earliest');
         $consumer = new Consumer();
         $consumer->start(function ($topic, $part, $message) {
             var_dump($message);

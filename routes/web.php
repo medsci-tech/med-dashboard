@@ -14,6 +14,9 @@
 /*
     * 前端路由，交由vue-router，注意放在最后！
 */
+Route::resource('kafka','Kafka\TestController');
 Route::any('/{any?}', function () {
     return view('app');
 })->name('home')->where('any','.*');
+
+

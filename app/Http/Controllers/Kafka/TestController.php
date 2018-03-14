@@ -32,9 +32,11 @@ class TestController extends Controller
             ];
         });
         $producer->success(function ($result) {
+            echo 'error';
             var_dump($result);
         });
         $producer->error(function ($errorCode) {
+            echo 'error';
             var_dump($errorCode);
         });
         $producer->send(true);

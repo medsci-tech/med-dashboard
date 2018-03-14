@@ -4,57 +4,68 @@ namespace App\Http\Controllers\Kafka;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Kafka\Config;
-use Kafka\Producer;
-use Kafka\ProducerConfig;
-use Kafka\Consumer;
-use Kafka\ConsumerConfig;
+use Enqueue\RdKafka\RdKafkaConnectionFactory;
+
 
 class TestController extends Controller
 {
     public function producer()
     {
-        $config = ProducerConfig::getInstance();
-        $config->setMetadataRefreshIntervalMs(10000);
-        $config->setMetadataBrokerList('172.21.0.13:9092');
-        $config->setBrokerVersion('0.8.2.1');
-        $config->setRequiredAck(1);
-        $config->setIsAsyn(false);
-        $config->setProduceInterval(500);
+//        // connects to localhost:9092
+//        $connectionFactory = new RdKafkaConnectionFactory();
+//
+//        // same as above
+//        $connectionFactory = new RdKafkaConnectionFactory('kafka:');
+//
+//        // same as above
+//        $connectionFactory = new RdKafkaConnectionFactory([]);
+//        // connect to Kafka broker at example.com:1000 plus custom options
+        $connectionFactory = new RdKafkaConnectionFactory([
+            'global' => [
+                'group.id' => 'test',
+                'metadata.broker.list' => '172.21.0.13:9092',
+                'enable.auto.commit' => 'false',
+            ],
+            'topic' => [
+                'auto.offset.reset' => 'beginning',
+            ],
+        ]);
 
-        $producer = new Producer(function () {
-            return [
-                [
-                    'topic' => 'doc_ant_wechat',
-                    'value' => time(),
-                    'key' => time(),
-                ],
-            ];
-        });
-        $producer->success(function ($result) {
-            echo 'success';
-            var_dump($result);
-        });
-        $producer->error(function ($errorCode) {
-            echo 'error';
-            var_dump($errorCode);
-        });
-        $producer->send(true);
+        $psrContext = $connectionFactory->createContext();
+
+//        // if you have enqueue/enqueue library installed you can use a function from there to create the context
+//        $psrContext = \Enqueue\dsn_to_context('kafka:');
+
+        $message = $psrContext->createMessage('Hello world!');
+        $psrContext->createProducer()->send('doc_ant_wechat', $message);
     }
 
     public function consumer()
     {
+        $connectionFactory = new RdKafkaConnectionFactory([
+            'global' => [
+                'group.id' => 'test',
+                'metadata.broker.list' => '172.21.0.13:9092',
+                'enable.auto.commit' => 'false',
+            ],
+            'topic' => [
+                'auto.offset.reset' => 'beginning',
+            ],
+        ]);
 
-        $config = ConsumerConfig::getInstance();
-        $config->setMetadataRefreshIntervalMs(10000);
-        $config->setMetadataBrokerList('172.21.0.13:9092');
-        $config->setGroupId('test');
-        $config->setBrokerVersion('0.8.2.1');
-        $config->setTopics(['doc_ant_wechat']);
-        //$config->setOffsetReset('earliest');
-        $consumer = new Consumer();
-        $consumer->start(function ($topic, $part, $message) {
-            var_dump($message);
-        });
+        $psrContext = $connectionFactory->createContext();
+        $fooQueue = $psrContext->createQueue('foo');
+
+        $consumer = $psrContext->createConsumer($fooQueue);
+
+// Enable async commit to gain better performance.
+//$consumer->setCommitAsync(true);
+
+        $message = $consumer->receive();
+
+// process a message
+
+        $consumer->acknowledge($message);
+// $consumer->reject($message);
     }
 }

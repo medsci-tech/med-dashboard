@@ -4,65 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "73f8573c5b36577eeb6b4ed1ea0e9487",
+    "content-hash": "76c8ac656a178162cd524828c5ae95fd",
     "packages": [
-        {
-            "name": "amphp/amp",
-            "version": "v1.2.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/amphp/amp.git",
-                "reference": "4f2161da5f68f274f116985635aea63b5c0f54d2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://files.phpcomposer.com/files/amphp/amp/4f2161da5f68f274f116985635aea63b5c0f54d2.zip",
-                "reference": "4f2161da5f68f274f116985635aea63b5c0f54d2",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.5"
-            },
-            "require-dev": {
-                "fabpot/php-cs-fixer": "~1.9",
-                "phpunit/phpunit": "~4.8"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Amp\\": "lib/"
-                },
-                "files": [
-                    "lib/functions.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Daniel Lowrey",
-                    "email": "rdlowrey@php.net",
-                    "role": "Creator / Lead Developer"
-                }
-            ],
-            "description": "A non-blocking concurrency framework for PHP applications",
-            "homepage": "https://github.com/amphp/amp",
-            "keywords": [
-                "async",
-                "concurrency",
-                "event",
-                "non-blocking",
-                "promise"
-            ],
-            "time": "2016-05-12T12:54:59+00:00"
-        },
         {
             "name": "barryvdh/laravel-ide-helper",
             "version": "v2.4.3",
@@ -997,16 +940,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "1.24.1",
+            "version": "1.24.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "ef12cbd8ba5ce624f0a6a95e0850c4cc13e71e41"
+                "reference": "bba6c6e410c6b4317e37a9474aeaa753808c3875"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/briannesbitt/Carbon/ef12cbd8ba5ce624f0a6a95e0850c4cc13e71e41.zip",
-                "reference": "ef12cbd8ba5ce624f0a6a95e0850c4cc13e71e41",
+                "url": "https://files.phpcomposer.com/files/briannesbitt/Carbon/bba6c6e410c6b4317e37a9474aeaa753808c3875.zip",
+                "reference": "bba6c6e410c6b4317e37a9474aeaa753808c3875",
                 "shasum": ""
             },
             "require": {
@@ -1046,7 +989,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2018-03-09T15:49:34+00:00"
+            "time": "2018-03-10T10:10:14+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -1101,26 +1044,22 @@
         },
         {
             "name": "nmred/kafka-php",
-            "version": "v0.2.0.8",
+            "version": "v0.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/weiboad/kafka-php.git",
-                "reference": "d5b395aeb9d069dce49fc1dceff0a6f45750d981"
+                "reference": "d00128534032521a6d7cef29d636a9ce03f57198"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/weiboad/kafka-php/d5b395aeb9d069dce49fc1dceff0a6f45750d981.zip",
-                "reference": "d5b395aeb9d069dce49fc1dceff0a6f45750d981",
+                "url": "https://files.phpcomposer.com/files/weiboad/kafka-php/d00128534032521a6d7cef29d636a9ce03f57198.zip",
+                "reference": "d00128534032521a6d7cef29d636a9ce03f57198",
                 "shasum": ""
             },
             "require": {
-                "amphp/amp": "v1.2.2",
-                "php": ">=5.5",
-                "psr/log": "1.0.2"
+                "php": ">=5.3.3"
             },
             "require-dev": {
-                "kmelia/monolog-stdout-handler": "1.2.1",
-                "monolog/monolog": "1.22.1",
                 "phpunit/phpcov": "*",
                 "phpunit/phpunit": "~4.0",
                 "satooshi/php-coveralls": "dev-master"
@@ -1141,7 +1080,7 @@
                 "client",
                 "kafka"
             ],
-            "time": "2017-10-23T09:33:08+00:00"
+            "time": "2017-02-18T03:33:13+00:00"
         },
         {
             "name": "paragonie/random_compat",

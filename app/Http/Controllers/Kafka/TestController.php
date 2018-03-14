@@ -9,47 +9,31 @@ class TestController extends Controller
 {
     public function producer()
     {
-        $config = \Kafka\ProducerConfig::getInstance();
-        $config->setMetadataRefreshIntervalMs(10000);
-        $config->setMetadataBrokerList('172.21.0.13:9092');
-        $config->setBrokerVersion('0.8.2.1');
-        $config->setRequiredAck(1);
-        $config->setIsAsyn(false);
-        $config->setProduceInterval(500);
-        $producer = new \Kafka\Producer(
-            function () {
-                return [
-                    [
-                        'topic' => '172.21.0.13',
-                        'value' => time(),
-                        'key' => time()
-                    ],
-                ];
-            }
-        );
-        $producer->success(function ($result) {
-            echo 'success';
-            var_dump($result);
-        });
-        $producer->error(function ($errorCode) {
-            echo 'error';
-            var_dump($errorCode);
-        });
-        $producer->send(true);
+        $produce = \Kafka\Produce::getInstance('10.13.4.159:9192', 3000);
+
+        $produce->setRequireAck(-1);
+        $produce->setMessages('test', 0, array('test1111111'));
+        $produce->setMessages('doc_ant_wechat', 0, array('test1111111'));
+        $produce->setMessages('doc_ant_web', 2, array('test1111111'));
+        $result = $produce->send();
+        var_dump($result);
     }
 
     public function consumer()
     {
-        $config = \Kafka\ConsumerConfig::getInstance();
-        $config->setMetadataRefreshIntervalMs(10000);
-        $config->setMetadataBrokerList('10.13.4.159:9192');
-        $config->setGroupId('test');
-        $config->setBrokerVersion('1.0.0');
-        $config->setTopics(['test']);
-        //$config->setOffsetReset('earliest');
-        $consumer = new \Kafka\Consumer();
-        $consumer->start(function ($topic, $part, $message) {
-            var_dump($message);
-        });
+        $consumer = \Kafka\Consumer::getInstance('10.13.4.159:9192');
+
+        $consumer->setGroup('test');
+        $consumer->setPartition('doc_ant_wechat', 0);
+        $consumer->setPartition('doc_ant_web', 2, 10);
+        $result = $consumer->fetch();
+        foreach ($result as $topicName => $topic) {
+            foreach ($topic as $partId => $partition) {
+                var_dump($partition->getHighOffset());
+                foreach ($partition as $message) {
+                    var_dump((string)$message);
+                }
+            }
+        }
     }
 }

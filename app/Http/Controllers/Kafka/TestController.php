@@ -27,7 +27,7 @@ class TestController extends Controller
                 'enable.auto.commit' => 'false',
             ],
             'topic' => [
-                'auto.offset.reset' => 'beginning',
+                'auto.offset.reset' => 'doc_ant_wechat',
             ],
         ]);
 

@@ -37,8 +37,10 @@
   "dependencies": {
     "babel-loader": "^7.1.2",
     "bootstrap": "^4.0.0",
+    "echarts": "^4.0.4",
     "popper.js": "^1.12.9",
     "sass-loader": "^6.0.6",
+    "v-charts": "^1.16.5",
     "vue-loader": "^13.5.0",
     "vuex-persistedstate": "^2.4.2"
   }

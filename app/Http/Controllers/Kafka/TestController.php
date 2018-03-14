@@ -4,42 +4,50 @@ namespace App\Http\Controllers\Kafka;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Enqueue\RdKafka\RdKafkaConnectionFactory;
-
 
 class TestController extends Controller
 {
     public function producer()
     {
-        $rk = new RdKafka\Producer();
-        $rk->setLogLevel(LOG_DEBUG);
-        $rk->addBrokers("172.21.0.13");
-
-        $topic = $rk->newTopic("doc_ant_web");
-
-        for ($i = 0; $i < 10; $i++) {
-            $topic->produce(RD_KAFKA_PARTITION_UA, 0, "Message $i");
-        }
+        $config = \Kafka\ProducerConfig::getInstance();
+        $config->setMetadataRefreshIntervalMs(10000);
+        $config->setMetadataBrokerList('172.21.0.13:9092');
+        $config->setBrokerVersion('0.8.2.1');
+        $config->setRequiredAck(1);
+        $config->setIsAsyn(false);
+        $config->setProduceInterval(500);
+        $producer = new \Kafka\Producer(
+            function () {
+                return [
+                    [
+                        'topic' => '172.21.0.13',
+                        'value' => time(),
+                        'key' => time()
+                    ],
+                ];
+            }
+        );
+        $producer->success(function ($result) {
+            var_dump($result);
+        });
+        $producer->error(function ($errorCode) {
+            var_dump($errorCode);
+        });
+        $producer->send(true);
     }
 
     public function consumer()
     {
-        $rk = new RdKafka\Consumer();
-        $rk->setLogLevel(LOG_DEBUG);
-        $rk->addBrokers("172.21.0.13");
-
-        $topic = $rk->newTopic("doc_ant_web");
-
-        $topic->consumeStart(0, RD_KAFKA_OFFSET_BEGINNING);
-
-        while (true) {
-            $msg = $topic->consume(0, 1000);
-            if ($msg->err) {
-                echo $msg->errstr(), "\n";
-                break;
-            } else {
-                echo $msg->payload, "\n";
-            }
-        }
+        $config = \Kafka\ConsumerConfig::getInstance();
+        $config->setMetadataRefreshIntervalMs(10000);
+        $config->setMetadataBrokerList('10.13.4.159:9192');
+        $config->setGroupId('test');
+        $config->setBrokerVersion('1.0.0');
+        $config->setTopics(['test']);
+        //$config->setOffsetReset('earliest');
+        $consumer = new \Kafka\Consumer();
+        $consumer->start(function ($topic, $part, $message) {
+            var_dump($message);
+        });
     }
 }

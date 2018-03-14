@@ -11,63 +11,35 @@ class TestController extends Controller
 {
     public function producer()
     {
-//        // connects to localhost:9092
-//        $connectionFactory = new RdKafkaConnectionFactory();
-//
-//        // same as above
-//        $connectionFactory = new RdKafkaConnectionFactory('kafka:');
-//
-//        // same as above
-//        $connectionFactory = new RdKafkaConnectionFactory([]);
-//        // connect to Kafka broker at example.com:1000 plus custom options
-        $connectionFactory = new RdKafkaConnectionFactory([
-            'global' => [
-                'group.id' => 'test',
-                'metadata.broker.list' => '172.21.0.13:9092',
-                'enable.auto.commit' => 'false',
-            ],
-            'topic' => [
-                'doc_ant_wechat',
-            ],
-        ]);
+        $rk = new RdKafka\Producer();
+        $rk->setLogLevel(LOG_DEBUG);
+        $rk->addBrokers("172.21.0.13");
 
-        $psrContext = $connectionFactory->createContext();
+        $topic = $rk->newTopic("doc_ant_web");
 
-//        // if you have enqueue/enqueue library installed you can use a function from there to create the context
-//        $psrContext = \Enqueue\dsn_to_context('kafka:');
-
-        $message = $psrContext->createMessage('Hello world!');
-
-        $result = $psrContext->createProducer()->send('doc_ant_wechat', $message);
-        dd($result);
+        for ($i = 0; $i < 10; $i++) {
+            $topic->produce(RD_KAFKA_PARTITION_UA, 0, "Message $i");
+        }
     }
 
     public function consumer()
     {
-        $connectionFactory = new RdKafkaConnectionFactory([
-            'global' => [
-                'group.id' => 'test',
-                'metadata.broker.list' => '172.21.0.13:9092',
-                'enable.auto.commit' => 'false',
-            ],
-            'topic' => [
-               'doc_ant_wechat'
-            ],
-        ]);
+        $rk = new RdKafka\Consumer();
+        $rk->setLogLevel(LOG_DEBUG);
+        $rk->addBrokers("172.21.0.13");
 
-        $psrContext = $connectionFactory->createContext();
-        $fooQueue = $psrContext->createQueue('foo');
+        $topic = $rk->newTopic("doc_ant_web");
 
-        $consumer = $psrContext->createConsumer($fooQueue);
+        $topic->consumeStart(0, RD_KAFKA_OFFSET_BEGINNING);
 
-// Enable async commit to gain better performance.
-//$consumer->setCommitAsync(true);
-
-        $message = $consumer->receive();
-
-// process a message
-
-        $consumer->acknowledge($message);
-// $consumer->reject($message);
+        while (true) {
+            $msg = $topic->consume(0, 1000);
+            if ($msg->err) {
+                echo $msg->errstr(), "\n";
+                break;
+            } else {
+                echo $msg->payload, "\n";
+            }
+        }
     }
 }

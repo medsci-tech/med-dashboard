@@ -27,7 +27,7 @@ class TestController extends Controller
                 'enable.auto.commit' => 'false',
             ],
             'topic' => [
-                'auto.offset.reset' => 'doc_ant_wechat',
+                'doc_ant_wechat',
             ],
         ]);
 
@@ -37,9 +37,8 @@ class TestController extends Controller
 //        $psrContext = \Enqueue\dsn_to_context('kafka:');
 
         $message = $psrContext->createMessage('Hello world!');
-        $fooTopic = $psrContext->createTopic('doc_ant_wechat');
 
-        $result = $psrContext->createProducer()->send($fooTopic, $message);
+        $result = $psrContext->createProducer()->send('doc_ant_wechat', $message);
         dd($result);
     }
 

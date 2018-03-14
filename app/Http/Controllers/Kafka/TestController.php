@@ -37,7 +37,10 @@ class TestController extends Controller
 //        $psrContext = \Enqueue\dsn_to_context('kafka:');
 
         $message = $psrContext->createMessage('Hello world!');
-        $psrContext->createProducer()->send('doc_ant_wechat', $message);
+        $fooTopic = $psrContext->createTopic('doc_ant_wechat');
+
+        $result = $psrContext->createProducer()->send($fooTopic, $message);
+        dd($result);
     }
 
     public function consumer()

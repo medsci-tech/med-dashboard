@@ -27,7 +27,7 @@ class TestController extends Controller
                 [
                     'topic' => 'doc_ant_wechat',
                     'value' => time(),
-                    'key' => date('yyyy-mmm-dd'),
+                    'key' => time(),
                 ],
             ];
         });

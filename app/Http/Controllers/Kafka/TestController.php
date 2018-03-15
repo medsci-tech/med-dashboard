@@ -12,7 +12,6 @@ class TestController extends Controller
         $config = \Kafka\ProducerConfig::getInstance();
         $config->setMetadataRefreshIntervalMs(10000);
         $config->setMetadataBrokerList('172.21.0.13:9092');
-        $config->setBrokerVersion('0.9.0.0');
         $config->setRequiredAck(1);
         $config->setIsAsyn(false);
         $config->setProduceInterval(500);

@@ -42,7 +42,6 @@ class TestController extends Controller
         $config->setMetadataRefreshIntervalMs(10000);
         $config->setMetadataBrokerList('172.21.0.13:9092');
         $config->setGroupId('test');
-        $config->setBrokerVersion('0.9.0.0');
         $config->setTopics(array('test'));
 //$config->setOffsetReset('earliest');
         $consumer = new \Kafka\Consumer();

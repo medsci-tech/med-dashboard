@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\ThirdPartyInterfaces\V0;
+namespace App\Http\Requests\ThirdPartyInterfaces\V1;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class TestConnection extends FormRequest
+class LogRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,16 +24,9 @@ class TestConnection extends FormRequest
     public function rules()
     {
         return [
-            //
+            'action' => 'required',
+            'data' => 'json|required',
+            'phone' => 'exists:members,phone'
         ];
-    }
-
-
-    public function handle()
-    {
-        return response()->json([
-            'status' => '1',
-            'message' => '接入成功！'
-        ]);
     }
 }

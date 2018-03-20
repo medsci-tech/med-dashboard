@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 
 /*
-|--------------------------------------------------------------------------
+|----------------------------------------th----------------------------------
 | API Routes
 |--------------------------------------------------------------------------
 |
@@ -16,6 +16,12 @@ use Illuminate\Http\Request;
 Route::group(['prefix' => 'v0'], function () {
     Route::any('test', 'ThirdPartyInterfaces\V0\TestConnectionInterfaceController@handleRequest');
 });
+
+Route::group(['prefix' => 'v1'], function () {
+    Route::any('log', 'ThirdPartyInterfaces\V1\LogController@handleRequest');
+    Route::any('register-log', 'ThirdPartyInterfaces\V1\RegisterLogController@handleRequest');
+});
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });

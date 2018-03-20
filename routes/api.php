@@ -14,7 +14,7 @@ use Illuminate\Http\Request;
 */
 
 Route::group(['prefix' => 'v0'], function () {
-    Route::any('test', 'ThirdPartyInterfaces\V0\TestController@handleRequest');
+    Route::any('test', 'ThirdPartyInterfaces\V0\TestConnectionInterfaceController@handleRequest');
 });
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

@@ -11,11 +11,15 @@
 |
 */
 
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
 /*
     * 前端路由，交由vue-router，注意放在最后！
 */
+
 Route::any('/{any?}', function () {
     return view('app');
 })->name('home')->where('any','.*');
-
 

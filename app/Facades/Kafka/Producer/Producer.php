@@ -1,14 +1,17 @@
 <?php
 
-namespace App\Kafka\Producer;
-
+namespace App\Facades\Kafka\Producer;
 
 /**
  * Class Producer
- * @package App\Kafka\Producer
+ * @package App\Facades\Kafka\Producer
  */
 class Producer
 {
+    /**
+     * @param $action
+     * @param $detail
+     */
     public function producer($action, $detail)
     {
         $config = \Kafka\ProducerConfig::getInstance();

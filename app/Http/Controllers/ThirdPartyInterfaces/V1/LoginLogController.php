@@ -2,27 +2,26 @@
 
 namespace App\Http\Controllers\ThirdPartyInterfaces\V1;
 
-use App\Http\Requests\ThirdPartyInterfaces\V1\LogRequest;
-use App\Models\MimeLog;
+use App\Http\Requests\ThirdPartyInterfaces\V1\LoginLogRequest;
+use App\Models\MimeLoginLog;
 use App\Http\Controllers\Controller;
 
 /**
- * Class LogController
+ * Class LoginLogController
  * @package App\Http\Controllers\ThirdPartyInterfaces\V1
  */
-class LogController extends Controller
+class LoginLogController extends Controller
 {
 
     /**
-     * @param LogRequest $request
+     * @param LoginLogRequest $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function handleRequest(LogRequest $request)
+    public function handleRequest(LoginLogRequest $request)
     {
-        MimeLog::create([
-            'action' => $request->input('action'),
+        MimeLoginLog::create([
             'phone' => $request->input('phone'),
-            'data' => \GuzzleHttp\json_decode($request->input('data'))
+            'identity' => $request->input('identity')
         ]);
 
         return response()->json([

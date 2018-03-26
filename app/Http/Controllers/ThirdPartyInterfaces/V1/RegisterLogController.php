@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\ThirdPartyInterfaces\V1;
 
 use App\Http\Requests\ThirdPartyInterfaces\V1\RegisterLogRequest;
-use Illuminate\Http\Request;
+use App\Models\MimeRegisterLog;
 use App\Http\Controllers\Controller;
 
 /**
@@ -19,9 +19,14 @@ class RegisterLogController extends Controller
      */
     public function handleRequest(RegisterLogRequest $request)
     {
+        MimeRegisterLog::create([
+            'phone' => $request->input('phone'),
+            'identity' => $request->input('identity')
+        ]);
+
         return response()->json([
             'status' => 1,
-            'message' => '记录成功。'
+            'message' => 'success'
         ]);
     }
 }

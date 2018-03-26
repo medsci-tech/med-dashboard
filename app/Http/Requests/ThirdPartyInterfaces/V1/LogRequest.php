@@ -25,8 +25,8 @@ class LogRequest extends FormRequest
     {
         return [
             'action' => 'required',
-            'data' => 'json|required',
-            'phone' => 'exists:members,phone'
+            'data' => 'required',
+            //'phone' => 'exists:members,mobile'
         ];
     }
 }

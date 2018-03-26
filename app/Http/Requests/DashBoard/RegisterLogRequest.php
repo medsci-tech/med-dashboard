@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\ThirdPartyInterfaces\V1;
+namespace App\Http\Requests\DashBoard;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -24,8 +24,8 @@ class RegisterLogRequest extends FormRequest
     public function rules()
     {
         return [
-            'phone' => 'unique:members,mobile',
-            'identity' => 'required'
+            'start_date' => 'required',
+            'end_date' => 'required'
         ];
     }
 }

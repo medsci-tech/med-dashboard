@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\ThirdPartyInterfaces\V1;
+namespace App\Http\Requests\DashBoard;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class RegisterLogRequest extends FormRequest
+class LogRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,7 @@ class RegisterLogRequest extends FormRequest
     public function rules()
     {
         return [
-            'phone' => 'unique:members,mobile',
-            'identity' => 'required'
+            //
         ];
     }
 }

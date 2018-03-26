@@ -14,12 +14,18 @@ use Illuminate\Http\Request;
 */
 
 Route::group(['prefix' => 'v0'], function () {
-    Route::any('test', 'ThirdPartyInterfaces\V0\TestConnectionInterfaceController@handleRequest');
+    Route::any('test', 'ThirdPartyInterfaces\V0\TestConnectionInterfaceController@handleRequest')->middleware('client');
 });
 
 Route::group(['prefix' => 'v1'], function () {
-    Route::any('log', 'ThirdPartyInterfaces\V1\LogController@handleRequest');
-    Route::any('register-log', 'ThirdPartyInterfaces\V1\RegisterLogController@handleRequest');
+    Route::any('log', 'ThirdPartyInterfaces\V1\LogController@handleRequest')->middleware('client');
+    Route::any('register-log', 'ThirdPartyInterfaces\V1\RegisterLogController@handleRequest')->middleware('client');
+    Route::any('login-log', 'ThirdPartyInterfaces\V1\LoginLogController@handleRequest')->middleware('client');
+});
+
+Route::group(['prefix' => 'statistics/mime'], function () {
+    Route::any('register', 'Dashboard\RegisterLogController@handleRequest');
+    Route::any('dau', 'Dashboard\DAUController@handleRequest');
 });
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {

@@ -20,7 +20,9 @@ Route::group(['prefix' => 'v0'], function () {
 Route::group(['prefix' => 'v1'], function () {
     Route::any('log', 'ThirdPartyInterfaces\V1\LogController@handleRequest')->middleware('client');
     Route::any('register-log', 'ThirdPartyInterfaces\V1\RegisterLogController@handleRequest')->middleware('client');
+    Route::any('wechat-register-log', 'ThirdPartyInterfaces\V1\WechatRegisterLogController@handleRequest')->middleware('client');
     Route::any('login-log', 'ThirdPartyInterfaces\V1\LoginLogController@handleRequest')->middleware('client');
+    Route::any('wechat-login-log', 'ThirdPartyInterfaces\V1\WechatLoginLogController@handleRequest')->middleware('client');
 });
 
 Route::group(['prefix' => 'statistics/mime'], function () {

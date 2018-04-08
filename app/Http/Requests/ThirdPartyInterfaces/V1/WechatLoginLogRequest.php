@@ -30,7 +30,7 @@ class WechatLoginLogRequest extends FormRequest
         return [
             'phone' => 'unique:members,mobile',
             'identity' => 'required',
-            'openid' => 'openid'
+            'openid' => 'required'
         ];
     }
 }

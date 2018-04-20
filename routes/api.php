@@ -23,11 +23,15 @@ Route::group(['prefix' => 'v1'], function () {
     Route::any('wechat-register-log', 'ThirdPartyInterfaces\V1\WechatRegisterLogController@handleRequest')->middleware('client');
     Route::any('login-log', 'ThirdPartyInterfaces\V1\LoginLogController@handleRequest')->middleware('client');
     Route::any('wechat-login-log', 'ThirdPartyInterfaces\V1\WechatLoginLogController@handleRequest')->middleware('client');
+    Route::any('user-profile-log', 'ThirdPartyInterfaces\V1\ProfileLogController@handleRequest')->middleware('client');
 });
 
 Route::group(['prefix' => 'statistics/mime'], function () {
     Route::any('register', 'Dashboard\RegisterLogController@handleRequest');
     Route::any('dau', 'Dashboard\DAUController@handleRequest');
+
+    Route::any('wechat-register', 'Dashboard\WechatRegisterLogController@handleRequest');
+    Route::any('wechat-dau', 'Dashboard\WechatDAUController@handleRequest');
 });
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {

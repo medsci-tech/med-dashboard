@@ -24,9 +24,8 @@ class LogRequest extends FormRequest
     public function rules()
     {
         return [
-            'action' => 'required',
-            'data' => 'required',
-            //'phone' => 'exists:members,mobile'
+            'start_date' => 'required',
+            'end_date' => 'required'
         ];
     }
 }

@@ -10,6 +10,9 @@ import App from './views/App.vue'
 import router from './router'
 import store from './store'
 
+import 'v-charts/lib/style.css';
+import 'bootstrap/dist/css/bootstrap.css';
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

@@ -12,6 +12,7 @@
   "devDependencies": {
     "axios": "^0.17.1",
     "babel-plugin-import": "^1.6.0",
+    "bootstrap": "^3.3.7",
     "bootstrap-sass": "^3.3.7",
     "cross-env": "^5.1.1",
     "eslint": "^4.11.0",
@@ -25,6 +26,7 @@
     "less": "^2.7.2",
     "less-loader": "^4.0.5",
     "lodash": "^4.17.4",
+    "mint-ui": "^2.2.13",
     "pug": "^2.0.0-rc.4",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1",
@@ -36,7 +38,7 @@
   },
   "dependencies": {
     "babel-loader": "^7.1.2",
-    "bootstrap": "^4.0.0",
+    "bootstrap": "^3.3.7",
     "echarts": "^4.0.4",
     "popper.js": "^1.12.9",
     "sass-loader": "^6.0.6",

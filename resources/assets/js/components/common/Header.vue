@@ -50,7 +50,7 @@
     }
 </script>
 
-<style>
+<style scoped>
     .navbar-nav a{color:#666}
     .navbar-nav .active{color: #fff!important;background:#333}
 </style>

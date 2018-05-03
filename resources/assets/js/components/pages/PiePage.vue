@@ -27,7 +27,6 @@
                     option :{
                         series : [
                             {
-                                date:'日期',
                                 type: 'pie',
                                 radius : '55%',
                                 center: ['50%', '60%'],
@@ -38,7 +37,8 @@
                                         shadowOffsetX: 0,
                                         shadowColor: 'rgba(0, 0, 0, 0.5)'
                                     }
-                                }
+                                },
+                                stillShowZeroSum: false
                             }
                         ]
                     }
@@ -138,90 +138,85 @@
                 let res = await pcReg('2018-2-28', '2018-4-30');
                 // console.log(res.data);
                 let data = res.data;
-                // let arrx = [];
                 let arr = [];
                 for(let k in data){
-                    // arrx.push(k);
-                    // arr.push(data[k])
                     arr.push({
-                        value: k,
-                        date:data[k]
+                        value: data[k],
+                        name: k
                     })
-                }
-                // this.pieData1.option.xAxis.data = arrx;
+                };
                 this.pieData1.option.series[0].data = arr;
+                this.pieData1.option.series[0].data = this.pieData1.option.series[0].data.filter((v)=>{
+                    return v.value > 0;
+                });
                 this.watchChange = this.pieData1.id;
             },
             async pcBro () {
                 let res = await pcBro('2018-2-28', '2018-4-30');
                 // console.log(res.data);
                 let data = res.data;
-                // let arrx = [];
                 let arr = [];
                 for(let k in data){
-                    // arrx.push(k);
-                    // arr.push(data[k])
                     arr.push({
-                        value: k,
-                        date:data[k]
+                        value: data[k],
+                        name: k
                     })
-                }
-                // this.pieData2.option.xAxis.data = arrx;
+                };
                 this.pieData2.option.series[0].data = arr;
+                this.pieData2.option.series[0].data = this.pieData2.option.series[0].data.filter((v)=>{
+                    return v.value > 0;
+                });
                 this.watchChange = this.pieData2.id;
             },
             async wcReg () {
                 let res = await wcReg('2018-2-28', '2018-4-30');
                 // console.log(res.data);
                 let data = res.data;
-                // let arrx = [];
                 let arr = [];
                 for(let k in data){
-                    // arrx.push(k);
-                    // arr.push(data[k])
                     arr.push({
-                        value: k,
-                        date:data[k]
+                        value: data[k],
+                        name:k
                     })
-                }
-                // this.pieData3.option.xAxis.data = arrx;
+                };
                 this.pieData3.option.series[0].data = arr;
+                this.pieData3.option.series[0].data = this.pieData3.option.series[0].data.filter((v)=>{
+                    return v.value > 0;
+                });
                 this.watchChange = this.pieData3.id;
             },
             async wcBro () {
                 let res = await wcBro('2018-2-28', '2018-4-30');
                 // console.log(res.data);
                 let data = res.data;
-                // let arrx = [];
                 let arr = [];
                 for(let k in data){
-                    // arrx.push(k);
-                    // arr.push(data[k])
                     arr.push({
-                        value: k,
-                        date:data[k]
+                        value: data[k],
+                        name:k
                     })
-                }
-                // this.pieData4.option.xAxis.data = arrx;
+                };
                 this.pieData4.option.series[0].data = arr;
+                this.pieData4.option.series[0].data = this.pieData4.option.series[0].data.filter((v)=>{
+                    return v.value > 0;
+                });
                 this.watchChange = this.pieData4.id;
             },
             async userAuth () {
                 let res = await userAuth('2018-2-28', '2018-4-30');
                 // console.log(res.data);
                 let data = res.data;
-                // let arrx = [];
                 let arr = [];
                 for(let k in data){
-                    // arrx.push(k);
-                    // arr.push(data[k])
                     arr.push({
-                        value: k,
-                        date:data[k]
+                        value: data[k],
+                        name:k
                     })
-                }
-                // this.pieData5.option.xAxis.data = arrx;
+                };
                 this.pieData5.option.series[0].data = arr;
+                    this.pieData5.option.series[0].data = this.pieData5.option.series[0].data.filter((v)=>{
+                    return v.value > 0;
+                });
                 this.watchChange = this.pieData5.id;
             }
         },

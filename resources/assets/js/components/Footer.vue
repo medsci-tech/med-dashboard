@@ -3,7 +3,7 @@
         <router-link to="/EchartsShow" class="footer-link active">线型图</router-link>
         <router-link to="/EchartsShow/BarPage" class="footer-link">柱状图</router-link>
         <router-link to="/EchartsShow/PiePage" class="footer-link">饼状图</router-link>
-        <router-link to="/EchartsShow/ScatterChart" class="footer-link">散点图</router-link>
+        <router-link to="/EchartsShow/ScatterPage" class="footer-link">散点图</router-link>
     </div>
 </template>
 

@@ -44,14 +44,16 @@
                 require('echarts/lib/component/tooltip');
                 require('echarts/lib/component/title');
 
-                let barChart = echarts.init(this.$refs.myBarChart)
+                let barChart = echarts.init(this.$refs.myBarChart);
                 //加载中
                 barChart.showLoading();
                 if (this.wChange) {
                     barChart.hideLoading();
-                }
-                barChart.setOption(this.options)
-                window.onresize = barChart.resize();
+                };
+                barChart.setOption(this.options);
+                window.addEventListener('resize',function(){
+                    barChart.resize();
+                })
             }
         }
     }

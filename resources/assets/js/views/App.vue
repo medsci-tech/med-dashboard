@@ -4,9 +4,11 @@
 </template>
 
 <script>
-  // import 'bootstrap/dist/js/bootstrap.js';
-  // import 'v-charts/lib/style.css';
-  // import 'bootstrap/dist/css/bootstrap.css';
+  export default {
+      data () {
+          return {}
+      }
+  }
 </script>
 
 <style>

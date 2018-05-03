@@ -38,7 +38,6 @@
 
 <script>
   import Header from './common/Header'
-  import VeLine from 'v-charts/lib/line'
   import 'echarts/lib/component/toolbox'
   import {pcReg} from '../service/api'
   import {pcBro} from "../service/api"
@@ -178,12 +177,11 @@
                 }
             }
         },
-      components: {VeLine,Header}
+      components: {Header}
   }
 </script>
 
 <style scoped>
-
   .container{
     padding-top: 61px;
   }

@@ -58,7 +58,9 @@
                 //绘制图表
                 lineChart.setOption(this.options);
                 //图表自适应
-                window.onresize = lineChart.resize();
+                window.addEventListener('resize',function () {
+                    lineChart.resize();
+                })
             }
         }
     }

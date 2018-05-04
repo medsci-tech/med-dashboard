@@ -5,31 +5,31 @@
             <div class="panel panel-default">
                 <div class="panel-heading">mime平台PC端每日注册量</div>
                 <div class="panel-body">
-                    <ve-line :data="chartData1" :toolbox="toolbox" :loading="chartData1.loading"/>
+                    <ve-line :data="chartData1" :toolbox="toolbox" :loading="chartData1.loading"></ve-line>
                 </div>
             </div>
             <div class="panel panel-default">
                 <div class="panel-heading">mime平台PC端每日浏览量</div>
                 <div class="panel-body">
-                    <ve-line :data="chartData2" :toolbox="toolbox" :loading="chartData2.loading" />
+                    <ve-line :data="chartData2" :toolbox="toolbox" :loading="chartData2.loading"></ve-line>
                 </div>
             </div>
             <div class="panel panel-default">
                 <div class="panel-heading">mime平台微信端每日注册人数</div>
                 <div class="panel-body">
-                   <ve-line :data="chartData3" :toolbox="toolbox" :loading="chartData3.loading"/>
+                   <ve-line :data="chartData3" :toolbox="toolbox" :loading="chartData3.loading"></ve-line>
                 </div>
             </div>
             <div class="panel panel-default">
                 <div class="panel-heading">mime平台微信端每日浏览人数</div>
                 <div class="panel-body">
-                    <ve-line :data="chartData4" :toolbox="toolbox" :loading="chartData4.loading" />
+                    <ve-line :data="chartData4" :toolbox="toolbox" :loading="chartData4.loading"></ve-line>
                 </div>
             </div>
             <div class="panel panel-default">
                 <div class="panel-heading">mime平台用户认证人数</div>
                 <div class="panel-body">
-                    <ve-line :data="chartData5" :toolbox="toolbox" :loading="chartData5.loading" />
+                    <ve-line :data="chartData5" :toolbox="toolbox" :loading="chartData5.loading"></ve-line>
                 </div>
             </div>
         </div>
@@ -38,6 +38,9 @@
 
 <script>
   import Header from './common/Header'
+  //使用loading属性需引入css
+  import 'v-charts/lib/style.css'
+  //使用工具箱需引入对应模块
   import 'echarts/lib/component/toolbox'
   import {pcReg} from '../service/api'
   import {pcBro} from "../service/api"

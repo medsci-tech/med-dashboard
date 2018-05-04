@@ -2,7 +2,7 @@
     <div class="panel panel-default">
         <div class="panel-heading">{{title}}</div>
         <div class="panel-body">
-            <div ref="myScatterChart" :style="{'height': height + 'px','width': '100%'}"></div>
+            <div ref="myScatterChart" :style="{'height': height + 'px'}"></div>
         </div>
     </div>
 </template>
@@ -57,7 +57,3 @@
         }
     }
 </script>
-
-<style scoped>
-    .panel-body, .panel-default {width:100%}
-</style>

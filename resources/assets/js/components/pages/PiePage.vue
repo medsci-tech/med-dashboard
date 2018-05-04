@@ -27,6 +27,7 @@
                     option :{
                         series : [
                             {
+                                name: 'register',
                                 type: 'pie',
                                 radius : '55%',
                                 center: ['50%', '60%'],
@@ -37,10 +38,13 @@
                                         shadowOffsetX: 0,
                                         shadowColor: 'rgba(0, 0, 0, 0.5)'
                                     }
-                                },
-                                stillShowZeroSum: false
+                                }
                             }
-                        ]
+                        ],
+                        tooltip : {
+                            trigger: 'item',
+                            formatter: "{a} <br/>{b} : {c} ({d}%)"
+                        }
                     }
                 },
                 pieData2:{
@@ -50,6 +54,7 @@
                     option :{
                         series : [
                             {
+                                name: 'browser',
                                 type: 'pie',
                                 radius : '55%',
                                 center: ['50%', '60%'],
@@ -62,7 +67,11 @@
                                     }
                                 }
                             }
-                        ]
+                        ],
+                        tooltip : {
+                            trigger: 'item',
+                            formatter: "{a} <br/>{b} : {c} ({d}%)"
+                        }
                     }
                 },
                 pieData3:{
@@ -72,6 +81,7 @@
                     option :{
                         series : [
                             {
+                                name: 'register',
                                 type: 'pie',
                                 radius : '55%',
                                 center: ['50%', '60%'],
@@ -84,7 +94,11 @@
                                     }
                                 }
                             }
-                        ]
+                        ],
+                        tooltip : {
+                            trigger: 'item',
+                            formatter: "{a} <br/>{b} : {c} ({d}%)"
+                        }
                     }
                 },
                 pieData4:{
@@ -94,6 +108,7 @@
                     option :{
                         series : [
                             {
+                                name: 'browser',
                                 type: 'pie',
                                 radius : '55%',
                                 center: ['50%', '60%'],
@@ -106,7 +121,11 @@
                                     }
                                 }
                             }
-                        ]
+                        ],
+                        tooltip : {
+                            trigger: 'item',
+                            formatter: "{a} <br/>{b} : {c} ({d}%)"
+                        }
                     }
                 },
                 pieData5:{
@@ -116,6 +135,7 @@
                     option :{
                         series : [
                             {
+                                name: 'profile',
                                 type: 'pie',
                                 radius : '55%',
                                 center: ['50%', '60%'],
@@ -128,7 +148,11 @@
                                     }
                                 }
                             }
-                        ]
+                        ],
+                        tooltip : {
+                            trigger: 'item',
+                            formatter: "{a} <br/>{b} : {c} ({d}%)"
+                        }
                     }
                 }
             }

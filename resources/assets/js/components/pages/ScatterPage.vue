@@ -26,13 +26,26 @@
                     id:0,
                     option :{
                         xAxis: {
-                            data:[]
+                            data:[],
+                            splitLine: {
+                                lineStyle: {
+                                    type: 'dashed'
+                                }
+                            }
                         },
                         yAxis: {},
-                        series: [{
-                            data: [],
-                            type: 'scatter'
-                        }]
+                        series: [
+                            {
+                                data: [],
+                                type: 'scatter'
+                            }
+                        ],
+                        tooltip: {
+                            trigger: 'item',
+                            axisPointer: {
+                                type: 'cross'
+                            }
+                        }
                     }
                 },
                 scatterData2:{
@@ -41,17 +54,26 @@
                     id:1,
                     option:{
                         xAxis: {
-                            data: []
+                            data: [],
+                            splitLine: {
+                                lineStyle: {
+                                    type: 'dashed'
+                                }
+                            }
                         },
-                        yAxis: {
-                            type: 'value'
-                        },
+                        yAxis: {},
                         series: [
                             {
                                 data:[],
                                 type:'scatter'
                             }
-                        ]
+                        ],
+                        tooltip: {
+                            trigger: 'item',
+                            axisPointer: {
+                                type: 'cross'
+                            }
+                        }
                     }
                 },
                 scatterData3:{
@@ -60,17 +82,26 @@
                     id:2,
                     option:{
                         xAxis: {
-                            data: []
+                            data: [],
+                            splitLine: {
+                                lineStyle: {
+                                    type: 'dashed'
+                                }
+                            }
                         },
-                        yAxis: {
-                            type: 'value'
-                        },
+                        yAxis: {},
                         series: [
                             {
                                 type:'scatter',
                                 data:[]
                             }
-                        ]
+                        ],
+                        tooltip: {
+                            trigger: 'item',
+                            axisPointer: {
+                                type: 'cross'
+                            }
+                        }
                     }
                 },
                 scatterData4:{
@@ -79,17 +110,26 @@
                     id:3,
                     option:{
                         xAxis: {
-                            data: []
+                            data: [],
+                            splitLine: {
+                                lineStyle: {
+                                    type: 'dashed'
+                                }
+                            }
                         },
-                        yAxis: {
-                            type: 'value'
-                        },
+                        yAxis: {},
                         series: [
                             {
                                 type:'scatter',
                                 data:[]
                             }
-                        ]
+                        ],
+                        tooltip: {
+                            trigger: 'item',
+                            axisPointer: {
+                                type: 'cross'
+                            }
+                        }
                     }
                 },
                 scatterData5:{
@@ -98,17 +138,26 @@
                     id:4,
                     option:{
                         xAxis: {
-                            data: []
+                            data: [],
+                            splitLine: {
+                                lineStyle: {
+                                    type: 'dashed'
+                                }
+                            }
                         },
-                        yAxis: {
-                            type: 'value'
-                        },
+                        yAxis: {},
                         series: [
                             {
                                 type:'scatter',
                                 data:[]
                             }
-                        ]
+                        ],
+                        tooltip: {
+                            trigger: 'item',
+                            axisPointer: {
+                                type: 'cross'
+                            }
+                        }
                     }
                 }
             }

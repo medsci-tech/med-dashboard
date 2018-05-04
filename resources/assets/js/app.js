@@ -5,12 +5,13 @@
  */
 
 require('./bootstrap');
-window.Vue = require('vue');
+// window.Vue = require('vue');
+import Vue from 'vue';
 import App from './views/App.vue';
 import router from './router';
 import store from './store';
 import VCharts from 'v-charts';
-import 'v-charts/lib/style.css';
+
 import 'bootstrap/dist/css/bootstrap.css';
 
 Vue.use(VCharts);

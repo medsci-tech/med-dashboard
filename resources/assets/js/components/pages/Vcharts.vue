@@ -12,7 +12,3 @@
         components:{Header}
     }
 </script>
-
-<style scoped>
-
-</style>

@@ -12,7 +12,7 @@
             <div class="navbar-collapse collapse" id="navSub">
                 <ul class="nav navbar-nav navbar-right">
                     <li v-for="(item, index) in navItem" >
-                        <a :class="{'active': index === num}" href="javascript:;" @click="go(item.path,index);num=index">{{item.title}}</a>
+                        <a :class="{'active': index === num}" href="javascript:;" @click="go(item.path,index); num === index">{{item.title}}</a>
                     </li>
                 </ul>
             </div>
@@ -37,11 +37,11 @@
         methods: {
             go (path,index) {
                 this.$router.push(path);
-                window.sessionStorage.setItem('index',index)
+                window.localStorage.setItem('index',index)
             }
         },
         mounted () {
-            let index = window.sessionStorage.getItem('index');
+            let index = window.localStorage.getItem('index');
             if(index){
                 this.num = parseInt(index)
             }

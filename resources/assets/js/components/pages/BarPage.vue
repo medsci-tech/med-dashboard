@@ -26,15 +26,23 @@
                     id:0,
                     option :{
                         xAxis: {
-                            data: []
-                        },
-                        yAxis: {
-                            type: 'value'
-                        },
-                        series: [{
                             data: [],
-                            type: 'bar'
-                        }]
+                            axisTick: {
+                                alignWithLabel: true
+                            }
+                        },
+                        yAxis: {},
+                        series: [
+                            {
+                                name: 'register',
+                                data: [],
+                                type: 'bar',
+                                barWidth: '50%'
+                            }
+                        ],
+                        tooltip : {
+                            trigger: 'axis'
+                        }
                     }
                 },
                 barData2:{
@@ -43,17 +51,23 @@
                     id:1,
                     option:{
                         xAxis: {
-                            data: []
+                            data: [],
+                            axisTick: {
+                                alignWithLabel: true
+                            }
                         },
-                        yAxis: {
-                            type: 'value'
-                        },
+                        yAxis: {},
                         series: [
                             {
-                                data:[],
-                                type:'bar'
+                                name: 'browser',
+                                data: [],
+                                type: 'bar',
+                                barWidth: '50%'
                             }
-                        ]
+                        ],
+                        tooltip : {
+                            trigger: 'axis'
+                        }
                     }
                 },
                 barData3:{
@@ -62,17 +76,23 @@
                     id:2,
                     option:{
                         xAxis: {
-                            data: []
+                            data: [],
+                            axisTick: {
+                                alignWithLabel: true
+                            }
                         },
-                        yAxis: {
-                            type: 'value'
-                        },
+                        yAxis: {},
                         series: [
                             {
-                                type:'bar',
-                                data:[]
+                                name: 'register',
+                                data: [],
+                                type: 'bar',
+                                barWidth: '50%'
                             }
-                        ]
+                        ],
+                        tooltip : {
+                            trigger: 'axis'
+                        }
                     }
                 },
                 barData4:{
@@ -81,17 +101,23 @@
                     id:3,
                     option:{
                         xAxis: {
-                            data: []
+                            data: [],
+                            axisTick: {
+                                alignWithLabel: true
+                            }
                         },
-                        yAxis: {
-                            type: 'value'
-                        },
+                        yAxis: {},
                         series: [
                             {
-                                type:'bar',
-                                data:[]
+                                name: 'browser',
+                                data: [],
+                                type: 'bar',
+                                barWidth: '50%'
                             }
-                        ]
+                        ],
+                        tooltip : {
+                            trigger: 'axis'
+                        }
                     }
                 },
                 barData5:{
@@ -100,17 +126,23 @@
                     id:4,
                     option:{
                         xAxis: {
-                            data: []
+                            data: [],
+                            axisTick: {
+                                alignWithLabel: true
+                            }
                         },
-                        yAxis: {
-                            type: 'value'
-                        },
+                        yAxis: {},
                         series: [
                             {
-                                type:'bar',
-                                data:[]
+                                name: 'profile',
+                                data: [],
+                                type: 'bar',
+                                barWidth: '50%'
                             }
-                        ]
+                        ],
+                        tooltip : {
+                            trigger: 'axis'
+                        }
                     }
                 }
             }

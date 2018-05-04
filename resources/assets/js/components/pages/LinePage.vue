@@ -26,15 +26,37 @@
                     id:0,
                     option :{
                         xAxis: {
-                            data: []
-                        },
-                        yAxis: {
-                            type: 'value'
-                        },
-                        series: [{
                             data: [],
-                            type: 'line'
-                        }]
+                            //边界间隙
+                            boundaryGap: false
+                        },
+                        yAxis: {},
+                        series: [
+                            {
+                                name: 'register',
+                                data: [],
+                                type: 'line'
+                            }
+                        ],
+                        legend: {
+                            data: ['register'],
+                            x: 'center'
+                        },
+                        grid: {
+                            //包含标签
+                            containLabel:true
+                        },
+                        toolbox: {
+                            feature: {
+                                saveAsImage: {}
+                            }
+                        },
+                        tooltip: {
+                            trigger: 'axis',
+                            axisPointer: {
+                                type: 'cross'
+                            }
+                        }
                     }
                 },
                 lineData2:{
@@ -43,17 +65,35 @@
                     id:1,
                     option:{
                         xAxis: {
-                            data: []
+                            data: [],
+                            boundaryGap: false
                         },
-                        yAxis: {
-                            type: 'value'
-                        },
+                        yAxis: {},
                         series: [
                             {
+                                name: 'browser',
                                 data:[],
                                 type:'line'
                             }
-                        ]
+                        ],
+                        legend: {
+                            data: ['browser'],
+                            x: 'center'
+                        },
+                        grid: {
+                            containLabel:true
+                        },
+                        toolbox: {
+                            feature: {
+                                saveAsImage: {}
+                            }
+                        },
+                        tooltip: {
+                            trigger: 'axis',
+                            axisPointer: {
+                                type: 'cross'
+                            }
+                        }
                     }
                 },
                 lineData3:{
@@ -62,17 +102,35 @@
                     id:2,
                     option:{
                         xAxis: {
-                            data: []
+                            data: [],
+                            boundaryGap: false,
                         },
-                        yAxis: {
-                            type: 'value'
-                        },
+                        yAxis: {},
                         series: [
                             {
+                                name: 'register',
                                 type:'line',
                                 data:[]
                             }
-                        ]
+                        ],
+                        legend: {
+                            data: ['register'],
+                            x: 'center'
+                        },
+                        grid: {
+                            containLabel:true
+                        },
+                        toolbox: {
+                            feature: {
+                                saveAsImage: {}
+                            }
+                        },
+                        tooltip: {
+                            trigger: 'axis',
+                            axisPointer: {
+                                type: 'cross'
+                            }
+                        }
                     }
                 },
                 lineData4:{
@@ -81,17 +139,35 @@
                     id:3,
                     option:{
                         xAxis: {
-                            data: []
+                            data: [],
+                            boundaryGap: false
                         },
-                        yAxis: {
-                            type: 'value'
-                        },
+                        yAxis: {},
                         series: [
                             {
+                                name: 'browser',
                                 type:'line',
                                 data:[]
                             }
-                        ]
+                        ],
+                        legend: {
+                            data: ['browser'],
+                            x: 'center'
+                        },
+                        grid: {
+                            containLabel:true
+                        },
+                        toolbox: {
+                            feature: {
+                                saveAsImage: {}
+                            }
+                        },
+                        tooltip: {
+                            trigger: 'axis',
+                            axisPointer: {
+                                type: 'cross'
+                            }
+                        }
                     }
                 },
                 lineData5:{
@@ -100,17 +176,35 @@
                     id:4,
                     option:{
                         xAxis: {
-                            data: []
+                            data: [],
+                            boundaryGap: false
                         },
-                        yAxis: {
-                            type: 'value'
-                        },
+                        yAxis: {},
                         series: [
                             {
+                                name: 'profile',
                                 type:'line',
                                 data:[]
                             }
-                        ]
+                        ],
+                        legend: {
+                            data: ['profile'],
+                            x: 'center'
+                        },
+                        grid: {
+                            containLabel:true
+                        },
+                        toolbox: {
+                            feature: {
+                                saveAsImage: {}
+                            }
+                        },
+                        tooltip: {
+                            trigger: 'axis',
+                            axisPointer: {
+                                type: 'cross'
+                            }
+                        }
                     }
                 }
             }

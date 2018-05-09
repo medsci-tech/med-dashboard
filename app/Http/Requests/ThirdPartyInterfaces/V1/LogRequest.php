@@ -25,12 +25,7 @@ class LogRequest extends FormRequest
     {
         return [
             'start_date' => 'required',
-<<<<<<< Updated upstream
             'end_date' => 'required'
-=======
-            'end_date' => 'required',
-            //'phone' => 'exists:members,mobile'
->>>>>>> Stashed changes
         ];
     }
 }

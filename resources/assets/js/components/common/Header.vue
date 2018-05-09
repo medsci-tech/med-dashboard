@@ -27,9 +27,12 @@
                 brandInfo: '蚂蚁仪表盘',
                 navItem: [
                     {title: '首页', path: '/'},
-                    {title: 'Echarts展示', path: '/EchartsShow'},
-                    {title: 'Echarts', path: '/Echarts'},
-                    {title: 'Vcharts', path: '/Vcharts'}
+                    {title: '每日注册量', path: '/reg-amount'},
+                    {title: 'DAU', path: '/dau'},
+                    {title: '每日认证数', path: '/auth-num'},
+                    {title: 'Echarts展示', path: '/echarts-show/link-page'},
+                    // {title: 'Echarts', path: '/echarts'},
+                    // {title: 'Vcharts', path: '/v-charts'}
                 ],
                 num:0
             }

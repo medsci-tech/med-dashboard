@@ -6,23 +6,23 @@ import ScatterPage from '../../components/pages/ScatterPage.vue';
 
 export default [
   {
-      path: '/EchartsShow',
+      path: '/echarts-show',
       component: EchartsShow,
       children:[
           {
-              path: '/',
+              path: 'link-page',
               component: LinePage
           },
           {
-              path: 'BarPage',
+              path: 'bar-page',
               component: BarPage
           },
           {
-              path: 'PiePage',
+              path: 'pie-page',
               component: PiePage
           },
           {
-              path: 'ScatterPage',
+              path: 'scatter-page',
               component: ScatterPage
           }
       ]

@@ -2,7 +2,7 @@ import Vcharts from '../../components/pages/Vcharts'
 
 export default [
     {
-        path: '/Vcharts',
+        path: '/v-charts',
         component: Vcharts
     }
 ]

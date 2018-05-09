@@ -12,7 +12,7 @@
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     <link href="{{ url('css/base.css') }}" rel="stylesheet">
-{{--    <link href="{{ url('bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css') }}" rel="stylesheet">--}}
+
 </head>
 <style>
     #app{height:100%}
@@ -33,7 +33,5 @@
 <script src="{{ mix('js/manifest.js') }}"></script>
 <script src="{{ mix('js/vendor.js') }}"></script>
 <script src="{{ mix('js/app.js') }}"></script>
-{{--<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>--}}
-{{--<script src="{{ url('bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js') }}"></script>--}}
 </body>
 </html>

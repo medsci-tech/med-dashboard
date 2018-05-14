@@ -20,31 +20,35 @@
             <div class="panel panel-default">
                 <div class="panel-heading">mime平台PC端每日注册量</div>
                 <div class="panel-body">
-                    <date-time :min="minTime" :max="maxTime"></date-time>
+                    <date-time1 :min="chartData1.minTime" :max="chartData1.maxTime"  @getTime1="getDate1"></date-time1>
                     <ve-line :data="chartData1" :toolbox="toolbox" :loading="chartData1.loading"></ve-line>
                 </div>
             </div>
             <div class="panel panel-default">
                 <div class="panel-heading">mime平台PC端-Daily Active User</div>
                 <div class="panel-body">
+                    <date-time2 :min="chartData2.minTime" :max="chartData2.maxTime"  @getTime2="getDate2"></date-time2>
                     <ve-line :data="chartData2" :toolbox="toolbox" :loading="chartData2.loading"></ve-line>
                 </div>
             </div>
             <div class="panel panel-default">
                 <div class="panel-heading">mime平台微信端每日注册人数</div>
                 <div class="panel-body">
+                    <date-time3 :min="chartData3.minTime" :max="chartData3.maxTime"  @getTime3="getDate3"></date-time3>
                     <ve-line :data="chartData3" :toolbox="toolbox" :loading="chartData3.loading"></ve-line>
                 </div>
             </div>
             <div class="panel panel-default">
                 <div class="panel-heading">mime平台微信端-Daily Active User</div>
                 <div class="panel-body">
+                    <date-time4 :min="chartData4.minTime" :max="chartData4.maxTime"  @getTime4="getDate4"></date-time4>
                     <ve-line :data="chartData4" :toolbox="toolbox" :loading="chartData4.loading"></ve-line>
                 </div>
             </div>
             <div class="panel panel-default">
                 <div class="panel-heading">mime平台用户认证人数</div>
                 <div class="panel-body">
+                    <date-time5 :min="chartData5.minTime" :max="chartData5.maxTime"  @getTime5="getDate5"></date-time5>
                     <ve-line :data="chartData5" :toolbox="toolbox" :loading="chartData5.loading"></ve-line>
                 </div>
             </div>
@@ -54,7 +58,11 @@
 
 <script>
     import Header from './common/Header'
-    import DateTime from './common/DateTime'
+    import DateTime1 from './common/DateTime1'
+    import DateTime2 from './common/DateTime2'
+    import DateTime3 from './common/DateTime3'
+    import DateTime4 from './common/DateTime4'
+    import DateTime5 from './common/DateTime5'
     //使用loading属性需引入css
     import 'v-charts/lib/style.css'
     //使用工具箱需引入对应模块
@@ -64,8 +72,11 @@
     export default {
         data() {
             return {
-                minTime: '',
-                maxTime: '',
+                arrList1: [],
+                arrList2: [],
+                arrList3: [],
+                arrList4: [],
+                arrList5: [],
                 toolbox: {
                     feature: {
                         magicType: {type: ['line', 'bar']},
@@ -75,27 +86,37 @@
                 chartData1: {
                     columns: ['date', 'register'],
                     rows: [],
-                    loading: true
+                    loading: true,
+                    minTime: '',
+                    maxTime: ''
                 },
                 chartData2: {
                     columns: ['date', 'browser'],
                     rows: [],
-                    loading: true
+                    loading: true,
+                    minTime: '',
+                    maxTime: ''
                 },
                 chartData3: {
                     columns: ['date', 'register'],
                     rows: [],
-                    loading: true
+                    loading: true,
+                    minTime: '',
+                    maxTime: ''
                 },
                 chartData4: {
                     columns: ['date', 'browser'],
                     rows: [],
-                    loading: true
+                    loading: true,
+                    minTime: '',
+                    maxTime: ''
                 },
                 chartData5: {
                     columns: ['date', 'profile'],
                     rows: [],
-                    loading: true
+                    loading: true,
+                    minTime: '',
+                    maxTime: ''
                 }
             }
         },
@@ -124,6 +145,32 @@
             this.userAuth();
         },
         methods: {
+            getDate1(date) {
+                // console.log(date)
+                this.chartData1.rows = this.arrList1.filter((v) => {
+                    return v.date >= date[0] && v.date <= date[1];
+                });
+            },
+            getDate2(date) {
+                this.chartData2.rows = this.arrList2.filter((v) => {
+                    return v.date >= date[0] && v.date <= date[1];
+                });
+            },
+            getDate3(date) {
+                this.chartData3.rows = this.arrList3.filter((v) => {
+                    return v.date >= date[0] && v.date <= date[1];
+                });
+            },
+            getDate4(date) {
+                this.chartData4.rows = this.arrList4.filter((v) => {
+                    return v.date >= date[0] && v.date <= date[1];
+                });
+            },
+            getDate5(date) {
+                this.chartData5.rows = this.arrList5.filter((v) => {
+                    return v.date >= date[0] && v.date <= date[1];
+                });
+            },
             async pcReg() {
                 let res = await pcReg('2018-2-28', '2018-4-30');
                 // console.log(res)
@@ -133,14 +180,17 @@
                         "date": k,
                         "register": data[k]
                     });
+                    this.arrList1.push({
+                        "date": k,
+                        "register": data[k]
+                    })
                 };
-                this.minTime = this.chartData1.rows[0].date
+                this.chartData1.minTime = this.chartData1.rows[0].date;
                 // this.maxTime = this.chartData1.rows[this.chartData1.rows.length-1].date
-                this.maxTime = this.chartData1.rows.pop().date
-                // console.log(this.chartData1.rows.pop().date)
+                this.chartData1.maxTime = this.chartData1.rows.pop().date;
                 if (this.chartData1) {
                     this.chartData1.loading = false;
-                }
+                };
             },
             async pcBro() {
                 let res = await pcBro('2018-2-28', '2018-4-30');
@@ -150,9 +200,14 @@
                     this.chartData2.rows.push({
                         'date': k,
                         'browser': data[k]
+                    });
+                    this.arrList2.push({
+                        "date": k,
+                        "browser": data[k]
                     })
-                }
-                ;
+                };
+                this.chartData2.minTime = this.chartData2.rows[0].date;
+                this.chartData2.maxTime = this.chartData2.rows.pop().date;
                 if (this.chartData2) {
                     this.chartData2.loading = false;
                 }
@@ -165,9 +220,14 @@
                     this.chartData3.rows.push({
                         'date': k,
                         'register': data[k]
+                    });
+                    this.arrList3.push({
+                        "date": k,
+                        "register": data[k]
                     })
-                }
-                ;
+                };
+                this.chartData3.minTime = this.chartData3.rows[0].date;
+                this.chartData3.maxTime = this.chartData3.rows.pop().date;
                 if (this.chartData3) {
                     this.chartData3.loading = false;
                 }
@@ -180,9 +240,14 @@
                     this.chartData4.rows.push({
                         'date': k,
                         'browser': data[k]
+                    });
+                    this.arrList4.push({
+                        "date": k,
+                        "browser": data[k]
                     })
-                }
-                ;
+                };
+                this.chartData4.minTime = this.chartData4.rows[0].date;
+                this.chartData4.maxTime = this.chartData4.rows.pop().date;
                 if (this.chartData4) {
                     this.chartData4.loading = false;
                 }
@@ -195,15 +260,20 @@
                     this.chartData5.rows.push({
                         'date': k,
                         'profile': data[k]
+                    });
+                    this.arrList5.push({
+                        "date": k,
+                        "profile": data[k]
                     })
-                }
-                ;
+                };
+                this.chartData5.minTime = this.chartData5.rows[0].date;
+                this.chartData5.maxTime = this.chartData5.rows.pop().date;
                 if (this.chartData5) {
                     this.chartData5.loading = false;
                 }
             }
         },
-        components: {Header,DateTime}
+        components: {Header,DateTime1,DateTime2,DateTime3,DateTime4,DateTime5}
     }
 </script>
 

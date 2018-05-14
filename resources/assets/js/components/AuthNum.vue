@@ -5,6 +5,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">mime平台用户认证人数</div>
                 <div class="panel-body">
+                    <date-time5 :min="chartData5.minTime" :max="chartData5.maxTime"  @getTime5="getDate5"></date-time5>
                     <ve-line :data="chartData5" :toolbox="toolbox" :loading="chartData5.loading"></ve-line>
                 </div>
             </div>
@@ -14,6 +15,7 @@
 
 <script>
     import Header from './common/Header'
+    import DateTime5 from './common/DateTime5'
     //使用loading属性需引入css
     import 'v-charts/lib/style.css'
     //使用工具箱需引入对应模块
@@ -23,6 +25,7 @@
     export default {
         data() {
             return {
+                arrList5: [],
                 toolbox: {
                     feature: {
                         magicType: {type: ['line', 'bar']},
@@ -32,7 +35,9 @@
                 chartData5: {
                     columns: ['date', 'profile'],
                     rows: [],
-                    loading: true
+                    loading: true,
+                    minTime: '',
+                    maxTime: ''
                 }
             }
         },
@@ -45,6 +50,11 @@
             this.userAuth();
         },
         methods: {
+            getDate5(date) {
+                this.chartData5.rows = this.arrList5.filter((v) => {
+                    return v.date >= date[0] && v.date <= date[1];
+                });
+            },
             async userAuth() {
                 let res = await userAuth('2018-2-28', '2018-4-30');
                 // console.log(res);
@@ -53,15 +63,20 @@
                     this.chartData5.rows.push({
                         'date': k,
                         'profile': data[k]
+                    });
+                    this.arrList5.push({
+                        "date": k,
+                        "profile": data[k]
                     })
-                }
-                ;
+                };
+                this.chartData5.minTime = this.chartData5.rows[0].date;
+                this.chartData5.maxTime = this.chartData5.rows.pop().date;
                 if (this.chartData5) {
                     this.chartData5.loading = false;
                 }
             }
         },
-        components: {Header}
+        components: {Header,DateTime5}
     }
 </script>
 

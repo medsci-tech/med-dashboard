@@ -61,7 +61,7 @@
                 },
                 lineData2:{
                     height:300,
-                    title:'mime平台PC端每日浏览量',
+                    title:'mime平台PC端-Daily Active User',
                     id:1,
                     option:{
                         xAxis: {
@@ -135,7 +135,7 @@
                 },
                 lineData4:{
                     height:300,
-                    title:'mime平台微信端每日浏览人数',
+                    title:'mime平台微信端-Daily Active User',
                     id:3,
                     option:{
                         xAxis: {

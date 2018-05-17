@@ -28,9 +28,10 @@
                 arrList2: [],
                 toolbox: {
                     feature: {
-                        // magicType: {type: ['line', 'bar']},
+                        magicType: {type: ['line', 'bar']},
                         saveAsImage: {}
-                    }
+                    },
+                    y:'bottom'
                 },
                 loading: true,
                 minTime: '',

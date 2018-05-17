@@ -61503,9 +61503,10 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             arrList5: [],
             toolbox: {
                 feature: {
-                    // magicType: {type: ['line', 'bar']},
+                    magicType: { type: ['line', 'bar'] },
                     saveAsImage: {}
-                }
+                },
+                y: 'bottom'
             },
             loading: true,
             minTime: '',
@@ -81879,9 +81880,10 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             arrList2: [],
             toolbox: {
                 feature: {
-                    // magicType: {type: ['line', 'bar']},
+                    magicType: { type: ['line', 'bar'] },
                     saveAsImage: {}
-                }
+                },
+                y: 'bottom'
             },
             loading: true,
             minTime: '',
@@ -83639,9 +83641,10 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             arrList1: [],
             toolbox: {
                 feature: {
-                    // magicType: {type: ['line', 'bar']},
+                    magicType: { type: ['line', 'bar'] },
                     saveAsImage: {}
-                }
+                },
+                y: 'bottom'
             },
             loading: true,
             minTime: '',

@@ -16,23 +16,28 @@
     import datepicker from 'vue-date'
 
     export default {
-        props: ['min', 'max'],
+        props: ['min','max'],
         data() {
             return {
-                date: ["2018-2-28","2018-4-30"],
+                date: ['2018-2-28','2018-3-28'],
+                // max: '3016-01-01'
             }
+        },
+        mounted(){
+            // this.fetchDate();
         },
         methods: {
             getTime() {
                 this.$emit('getTime1', this.date)
-            }
+            },
+            // fetchDate(){
+            //     //获取当前年月日
+            //     let nowDate = new Date();
+            //     let localDate = nowDate.toLocaleDateString();
+            //     let strArr = localDate.split("/").join('-');
+            //     this.date[1] = strArr;
+            // }
         },
-        // watch: {
-        //     date () {
-        //         console.log(this.date);
-        //         this.$emit('getTime',this.date)
-        //     }
-        // },
         components: {
             datepicker
         }

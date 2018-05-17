@@ -2,17 +2,17 @@
     <div>
         <Header></Header>
         <div class="container">
-            <div class="panel panel-default">
+            <div class="panel panel-default" style="display:none">
                 <div class="panel-heading custom-style-heading">mime平台</div>
                 <div class="panel-body custom-style-body">
                     <div class="row">
                         <div class="col-md-6 col-xs-6 bg-success">
                             总认证人数（人）：
-                            <p>22222222</p>
+                            <p></p>
                         </div>
                         <div class="col-md-6 col-xs-6 bg-warning">
                             总注册人数（人）：
-                            <p>44444444447</p>
+                            <p></p>
                         </div>
                     </div>
                 </div>
@@ -20,7 +20,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">mime平台PC端每日注册量</div>
                 <div class="panel-body">
-                    <date-time1 :min="chartData1.minTime" :max="chartData1.maxTime"  @getTime1="getDate1"></date-time1>
+                    <date-time1 :min="chartData1.minTime" :max="chartData1.maxTime" @getTime1="getDate1"></date-time1>
                     <ve-line :data="chartData1" :toolbox="toolbox" :loading="chartData1.loading"></ve-line>
                 </div>
             </div>
@@ -34,21 +34,21 @@
             <div class="panel panel-default">
                 <div class="panel-heading">mime平台微信端每日注册人数</div>
                 <div class="panel-body">
-                    <date-time3 :min="chartData3.minTime" :max="chartData3.maxTime"  @getTime3="getDate3"></date-time3>
+                    <date-time3 :min="chartData3.minTime" :max="chartData3.maxTime" @getTime3="getDate3"></date-time3>
                     <ve-line :data="chartData3" :toolbox="toolbox" :loading="chartData3.loading"></ve-line>
                 </div>
             </div>
             <div class="panel panel-default">
                 <div class="panel-heading">mime平台微信端-Daily Active User</div>
                 <div class="panel-body">
-                    <date-time4 :min="chartData4.minTime" :max="chartData4.maxTime"  @getTime4="getDate4"></date-time4>
+                    <date-time4 :min="chartData4.minTime" :max="chartData4.maxTime" @getTime4="getDate4"></date-time4>
                     <ve-line :data="chartData4" :toolbox="toolbox" :loading="chartData4.loading"></ve-line>
                 </div>
             </div>
             <div class="panel panel-default">
                 <div class="panel-heading">mime平台用户认证人数</div>
                 <div class="panel-body">
-                    <date-time5 :min="chartData5.minTime" :max="chartData5.maxTime"  @getTime5="getDate5"></date-time5>
+                    <date-time5 :min="chartData5.minTime" :max="chartData5.maxTime" @getTime5="getDate5"></date-time5>
                     <ve-line :data="chartData5" :toolbox="toolbox" :loading="chartData5.loading"></ve-line>
                 </div>
             </div>
@@ -172,7 +172,10 @@
                 });
             },
             async pcReg() {
-                let res = await pcReg('2018-2-28', '2018-4-30');
+                let nowDate = new Date();
+                let localDate = nowDate.toLocaleDateString();
+                let strArr = localDate.split("/").join('-');
+                let res = await pcReg('2018-2-28', strArr);
                 // console.log(res)
                 let data = res.data;
                 for (let k in data) {
@@ -186,14 +189,16 @@
                     })
                 };
                 this.chartData1.minTime = this.chartData1.rows[0].date;
-                // this.maxTime = this.chartData1.rows[this.chartData1.rows.length-1].date
                 this.chartData1.maxTime = this.chartData1.rows.pop().date;
                 if (this.chartData1) {
                     this.chartData1.loading = false;
                 };
             },
             async pcBro() {
-                let res = await pcBro('2018-2-28', '2018-4-30');
+                let nowDate = new Date();
+                let localDate = nowDate.toLocaleDateString();
+                let strArr = localDate.split("/").join('-');
+                let res = await pcBro('2018-2-28', strArr);
                 // console.log(res);
                 let data = res.data;
                 for (let k in data) {
@@ -213,7 +218,10 @@
                 }
             },
             async wcReg() {
-                let res = await wcReg('2018-2-28', '2018-4-30');
+                let nowDate = new Date();
+                let localDate = nowDate.toLocaleDateString();
+                let strArr = localDate.split("/").join('-');
+                let res = await wcReg('2018-2-28', strArr);
                 // console.log(res);
                 let data = res.data;
                 for (let k in data) {
@@ -233,7 +241,10 @@
                 }
             },
             async wcBro() {
-                let res = await wcBro('2018-2-28', '2018-4-30');
+                let nowDate = new Date();
+                let localDate = nowDate.toLocaleDateString();
+                let strArr = localDate.split("/").join('-');
+                let res = await wcBro('2018-2-28', strArr);
                 // console.log(res);
                 let data = res.data;
                 for (let k in data) {
@@ -253,7 +264,10 @@
                 }
             },
             async userAuth() {
-                let res = await userAuth('2018-2-28', '2018-4-30');
+                let nowDate = new Date();
+                let localDate = nowDate.toLocaleDateString();
+                let strArr = localDate.split("/").join('-');
+                let res = await userAuth('2018-2-28', strArr);
                 // console.log(res);
                 let data = res.data;
                 for (let k in data) {

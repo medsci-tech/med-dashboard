@@ -16,10 +16,11 @@
     import datepicker from 'vue-date'
 
     export default {
-        props: ['min', 'max'],
+        props: ['min','max'],
         data() {
             return {
-                date: ["2018-2-28","2018-4-30"],
+                date: ['2018-2-28','2018-3-28'],
+                // max: '3016-01-01'
             }
         },
         methods: {

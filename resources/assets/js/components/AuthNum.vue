@@ -5,8 +5,8 @@
             <div class="panel panel-default">
                 <div class="panel-heading">mime平台用户认证人数</div>
                 <div class="panel-body">
-                    <date-time5 :min="chartData5.minTime" :max="chartData5.maxTime"  @getTime5="getDate5"></date-time5>
-                    <ve-line :data="chartData5" :toolbox="toolbox" :loading="chartData5.loading"></ve-line>
+                    <date-time5 :min="minTime" :max="maxTime"  @getTime5="getDate5"></date-time5>
+                    <ve-line :data="chartData5" :toolbox="toolbox" :loading="loading"></ve-line>
                 </div>
             </div>
         </div>
@@ -28,16 +28,16 @@
                 arrList5: [],
                 toolbox: {
                     feature: {
-                        magicType: {type: ['line', 'bar']},
+                        // magicType: {type: ['line', 'bar']},
                         saveAsImage: {}
                     }
                 },
+                loading: true,
+                minTime: '',
+                maxTime: '',
                 chartData5: {
                     columns: ['date', 'profile'],
-                    rows: [],
-                    loading: true,
-                    minTime: '',
-                    maxTime: ''
+                    rows: []
                 }
             }
         },
@@ -56,8 +56,10 @@
                 });
             },
             async userAuth() {
-                let res = await userAuth('2018-2-28', '2018-4-30');
-                // console.log(res);
+                let nowDate = new Date();
+                let localDate = nowDate.toLocaleDateString();
+                let strArr = localDate.split("/").join('-');
+                let res = await userAuth('2018-2-28', strArr);
                 let data = res.data;
                 for (let k in data) {
                     this.chartData5.rows.push({
@@ -69,10 +71,10 @@
                         "profile": data[k]
                     })
                 };
-                this.chartData5.minTime = this.chartData5.rows[0].date;
-                this.chartData5.maxTime = this.chartData5.rows.pop().date;
+                this.minTime = this.chartData5.rows[0].date;
+                this.maxTime = this.chartData5.rows.pop().date;
                 if (this.chartData5) {
-                    this.chartData5.loading = false;
+                    this.loading = false;
                 }
             }
         },

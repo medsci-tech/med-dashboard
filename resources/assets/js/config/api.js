@@ -48,7 +48,7 @@ function checkCode (res) {
     console.log(res.msg);
   }
   if (res.data && (!res.success)) {
-    console.log(res.msg);
+    // console.log(res.msg);
 //  alert(res.data.error_msg)
   }
   return res;
@@ -62,7 +62,7 @@ export default {
       baseURL: urlData ? urlData : baseUrl,
       url,
       data: data,
-      timeout: 20000,
+      timeout: 30000,
       headers: {
         'X-Requested-With': 'XMLHttpRequest',
         'Content-Type': 'application/json;charset=UTF-8'

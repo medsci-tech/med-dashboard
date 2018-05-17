@@ -30,7 +30,7 @@
                     {title: '每日注册量', path: '/reg-amount'},
                     {title: 'DAU', path: '/dau'},
                     {title: '每日认证数', path: '/auth-num'},
-                    {title: 'Echarts展示', path: '/echarts-show/link-page'},
+                    // {title: 'Echarts展示', path: '/echarts-show/link-page'},
                     // {title: 'Echarts', path: '/echarts'},
                     // {title: 'Vcharts', path: '/v-charts'}
                 ],
@@ -39,16 +39,15 @@
         },
         methods: {
             go (path,index) {
-                this.$router.push(path);
-                window.localStorage.setItem('index',index)
+                this.$router.replace(path);
+                window.sessionStorage.setItem('index',index)
             }
         },
         mounted () {
-            let index = window.localStorage.getItem('index');
+            let index = window.sessionStorage.getItem('index');
             if(index){
                 this.num = parseInt(index)
             }
-
         }
     }
 </script>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\ThirdPartyInterfaces\V1;
 
 use App\Http\Requests\ThirdPartyInterfaces\V1\MimeRequest;
 use App\Http\Controllers\Controller;
+use App\Models\MimeStatistics;
 use App\Models\MimeUserProfileLog;
 
 /**
@@ -23,6 +24,10 @@ class ProfileLogController extends Controller
             'phone' => $request->input('phone'),
             'identity' => $request->input('identity')
         ]);
+
+        $statistics = MimeStatistics::first();
+        $statistics->profile_count++;
+        $statistics->save();
 
         return response()->json([
             'status' => 1,

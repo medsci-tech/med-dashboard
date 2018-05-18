@@ -321,5 +321,5 @@
     .custom-style-body{padding:0 15px;}
     .custom-style-body .row{height:100px}
     .custom-style-body .col-md-6{height:100%;padding:20px 15px;}
-    .custom-style-body .col-md-6 p{color:#aa0f0f;margin:5px 0 0 10px;font-size:28px;font-weight:500;overflow:hidden}
+    .custom-style-body .col-md-6 p{color:#aa0f0f;margin-top:5px;font-size:28px;font-weight:500;overflow:hidden}
 </style>

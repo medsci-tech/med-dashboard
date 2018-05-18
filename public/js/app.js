@@ -82433,7 +82433,7 @@ exports = module.exports = __webpack_require__(18)(false);
 
 
 // module
-exports.push([module.i, "\n.container[data-v-85ef4954] {\n    padding-top: 61px;\n}\n.custom-style-panel[data-v-85ef4954]{border:none\n}\n.custom-style-heading[data-v-85ef4954]{background-color:#ff4949;font-size:20px;color:#fff\n}\n.custom-style-heading span[data-v-85ef4954]{font-size:14px\n}\n.custom-style-body[data-v-85ef4954]{padding:0 15px;\n}\n.custom-style-body .row[data-v-85ef4954]{height:100px\n}\n.custom-style-body .col-md-6[data-v-85ef4954]{height:100%;padding:20px 15px;\n}\n.custom-style-body .col-md-6 p[data-v-85ef4954]{color:#aa0f0f;margin:5px 0 0 10px;font-size:28px;font-weight:500;overflow:hidden\n}\n", ""]);
+exports.push([module.i, "\n.container[data-v-85ef4954] {\n    padding-top: 61px;\n}\n.custom-style-panel[data-v-85ef4954]{border:none\n}\n.custom-style-heading[data-v-85ef4954]{background-color:#ff4949;font-size:20px;color:#fff\n}\n.custom-style-heading span[data-v-85ef4954]{font-size:14px\n}\n.custom-style-body[data-v-85ef4954]{padding:0 15px;\n}\n.custom-style-body .row[data-v-85ef4954]{height:100px\n}\n.custom-style-body .col-md-6[data-v-85ef4954]{height:100%;padding:20px 15px;\n}\n.custom-style-body .col-md-6 p[data-v-85ef4954]{color:#aa0f0f;margin-top:5px;font-size:28px;font-weight:500;overflow:hidden\n}\n", ""]);
 
 // exports
 

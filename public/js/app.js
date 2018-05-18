@@ -6114,11 +6114,12 @@ exports.getTextRect = getTextRect;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return pcReg; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return pcBro; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return wcReg; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return wcBro; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return userAuth; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return pcReg; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return pcBro; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return wcReg; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return wcBro; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return userAuth; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return amountNum; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__config_api__ = __webpack_require__(321);
 
 // 这里统一配置
@@ -6136,6 +6137,9 @@ var wcBro = function wcBro(start, end) {
 };
 var userAuth = function userAuth(start, end) {
   return __WEBPACK_IMPORTED_MODULE_0__config_api__["a" /* default */].post('/statistics/mime/profile?start_date=' + start + '&end_date=' + end);
+};
+var amountNum = function amountNum() {
+  return __WEBPACK_IMPORTED_MODULE_0__config_api__["a" /* default */].post('statistics/mime/statistics');
 };
 
 /***/ }),
@@ -61544,7 +61548,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                 localDate = nowDate.toLocaleDateString();
                                 strArr = localDate.split("/").join('-');
                                 _context.next = 5;
-                                return Object(__WEBPACK_IMPORTED_MODULE_5__service_api__["c" /* userAuth */])('2018-2-28', strArr);
+                                return Object(__WEBPACK_IMPORTED_MODULE_5__service_api__["d" /* userAuth */])('2018-2-28', strArr);
 
                             case 5:
                                 res = _context.sent;
@@ -74057,7 +74061,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                         switch (_context.prev = _context.next) {
                             case 0:
                                 _context.next = 2;
-                                return Object(__WEBPACK_IMPORTED_MODULE_2__service_api__["b" /* pcReg */])('2018-2-28', '2018-4-30');
+                                return Object(__WEBPACK_IMPORTED_MODULE_2__service_api__["c" /* pcReg */])('2018-2-28', '2018-4-30');
 
                             case 2:
                                 res = _context.sent;
@@ -74097,7 +74101,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                         switch (_context2.prev = _context2.next) {
                             case 0:
                                 _context2.next = 2;
-                                return Object(__WEBPACK_IMPORTED_MODULE_2__service_api__["a" /* pcBro */])('2018-2-28', '2018-4-30');
+                                return Object(__WEBPACK_IMPORTED_MODULE_2__service_api__["b" /* pcBro */])('2018-2-28', '2018-4-30');
 
                             case 2:
                                 res = _context2.sent;
@@ -74137,7 +74141,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                         switch (_context3.prev = _context3.next) {
                             case 0:
                                 _context3.next = 2;
-                                return Object(__WEBPACK_IMPORTED_MODULE_2__service_api__["e" /* wcReg */])('2018-2-28', '2018-4-30');
+                                return Object(__WEBPACK_IMPORTED_MODULE_2__service_api__["f" /* wcReg */])('2018-2-28', '2018-4-30');
 
                             case 2:
                                 res = _context3.sent;
@@ -74177,7 +74181,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                         switch (_context4.prev = _context4.next) {
                             case 0:
                                 _context4.next = 2;
-                                return Object(__WEBPACK_IMPORTED_MODULE_2__service_api__["d" /* wcBro */])('2018-2-28', '2018-4-30');
+                                return Object(__WEBPACK_IMPORTED_MODULE_2__service_api__["e" /* wcBro */])('2018-2-28', '2018-4-30');
 
                             case 2:
                                 res = _context4.sent;
@@ -74217,7 +74221,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                         switch (_context5.prev = _context5.next) {
                             case 0:
                                 _context5.next = 2;
-                                return Object(__WEBPACK_IMPORTED_MODULE_2__service_api__["c" /* userAuth */])('2018-2-28', '2018-4-30');
+                                return Object(__WEBPACK_IMPORTED_MODULE_2__service_api__["d" /* userAuth */])('2018-2-28', '2018-4-30');
 
                             case 2:
                                 res = _context5.sent;
@@ -78200,7 +78204,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                         switch (_context.prev = _context.next) {
                             case 0:
                                 _context.next = 2;
-                                return Object(__WEBPACK_IMPORTED_MODULE_2__service_api__["b" /* pcReg */])('2018-2-28', '2018-4-30');
+                                return Object(__WEBPACK_IMPORTED_MODULE_2__service_api__["c" /* pcReg */])('2018-2-28', '2018-4-30');
 
                             case 2:
                                 res = _context.sent;
@@ -78240,7 +78244,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                         switch (_context2.prev = _context2.next) {
                             case 0:
                                 _context2.next = 2;
-                                return Object(__WEBPACK_IMPORTED_MODULE_2__service_api__["a" /* pcBro */])('2018-2-28', '2018-4-30');
+                                return Object(__WEBPACK_IMPORTED_MODULE_2__service_api__["b" /* pcBro */])('2018-2-28', '2018-4-30');
 
                             case 2:
                                 res = _context2.sent;
@@ -78280,7 +78284,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                         switch (_context3.prev = _context3.next) {
                             case 0:
                                 _context3.next = 2;
-                                return Object(__WEBPACK_IMPORTED_MODULE_2__service_api__["e" /* wcReg */])('2018-2-28', '2018-4-30');
+                                return Object(__WEBPACK_IMPORTED_MODULE_2__service_api__["f" /* wcReg */])('2018-2-28', '2018-4-30');
 
                             case 2:
                                 res = _context3.sent;
@@ -78320,7 +78324,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                         switch (_context4.prev = _context4.next) {
                             case 0:
                                 _context4.next = 2;
-                                return Object(__WEBPACK_IMPORTED_MODULE_2__service_api__["d" /* wcBro */])('2018-2-28', '2018-4-30');
+                                return Object(__WEBPACK_IMPORTED_MODULE_2__service_api__["e" /* wcBro */])('2018-2-28', '2018-4-30');
 
                             case 2:
                                 res = _context4.sent;
@@ -78360,7 +78364,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                         switch (_context5.prev = _context5.next) {
                             case 0:
                                 _context5.next = 2;
-                                return Object(__WEBPACK_IMPORTED_MODULE_2__service_api__["c" /* userAuth */])('2018-2-28', '2018-4-30');
+                                return Object(__WEBPACK_IMPORTED_MODULE_2__service_api__["d" /* userAuth */])('2018-2-28', '2018-4-30');
 
                             case 2:
                                 res = _context5.sent;
@@ -79286,7 +79290,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                         switch (_context.prev = _context.next) {
                             case 0:
                                 _context.next = 2;
-                                return Object(__WEBPACK_IMPORTED_MODULE_2__service_api__["b" /* pcReg */])('2018-2-28', '2018-4-30');
+                                return Object(__WEBPACK_IMPORTED_MODULE_2__service_api__["c" /* pcReg */])('2018-2-28', '2018-4-30');
 
                             case 2:
                                 res = _context.sent;
@@ -79329,7 +79333,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                         switch (_context2.prev = _context2.next) {
                             case 0:
                                 _context2.next = 2;
-                                return Object(__WEBPACK_IMPORTED_MODULE_2__service_api__["a" /* pcBro */])('2018-2-28', '2018-4-30');
+                                return Object(__WEBPACK_IMPORTED_MODULE_2__service_api__["b" /* pcBro */])('2018-2-28', '2018-4-30');
 
                             case 2:
                                 res = _context2.sent;
@@ -79372,7 +79376,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                         switch (_context3.prev = _context3.next) {
                             case 0:
                                 _context3.next = 2;
-                                return Object(__WEBPACK_IMPORTED_MODULE_2__service_api__["e" /* wcReg */])('2018-2-28', '2018-4-30');
+                                return Object(__WEBPACK_IMPORTED_MODULE_2__service_api__["f" /* wcReg */])('2018-2-28', '2018-4-30');
 
                             case 2:
                                 res = _context3.sent;
@@ -79415,7 +79419,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                         switch (_context4.prev = _context4.next) {
                             case 0:
                                 _context4.next = 2;
-                                return Object(__WEBPACK_IMPORTED_MODULE_2__service_api__["d" /* wcBro */])('2018-2-28', '2018-4-30');
+                                return Object(__WEBPACK_IMPORTED_MODULE_2__service_api__["e" /* wcBro */])('2018-2-28', '2018-4-30');
 
                             case 2:
                                 res = _context4.sent;
@@ -79458,7 +79462,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                         switch (_context5.prev = _context5.next) {
                             case 0:
                                 _context5.next = 2;
-                                return Object(__WEBPACK_IMPORTED_MODULE_2__service_api__["c" /* userAuth */])('2018-2-28', '2018-4-30');
+                                return Object(__WEBPACK_IMPORTED_MODULE_2__service_api__["d" /* userAuth */])('2018-2-28', '2018-4-30');
 
                             case 2:
                                 res = _context5.sent;
@@ -80839,7 +80843,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                         switch (_context.prev = _context.next) {
                             case 0:
                                 _context.next = 2;
-                                return Object(__WEBPACK_IMPORTED_MODULE_2__service_api__["b" /* pcReg */])('2018-2-28', '2018-4-30');
+                                return Object(__WEBPACK_IMPORTED_MODULE_2__service_api__["c" /* pcReg */])('2018-2-28', '2018-4-30');
 
                             case 2:
                                 res = _context.sent;
@@ -80879,7 +80883,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                         switch (_context2.prev = _context2.next) {
                             case 0:
                                 _context2.next = 2;
-                                return Object(__WEBPACK_IMPORTED_MODULE_2__service_api__["a" /* pcBro */])('2018-2-28', '2018-4-30');
+                                return Object(__WEBPACK_IMPORTED_MODULE_2__service_api__["b" /* pcBro */])('2018-2-28', '2018-4-30');
 
                             case 2:
                                 res = _context2.sent;
@@ -80919,7 +80923,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                         switch (_context3.prev = _context3.next) {
                             case 0:
                                 _context3.next = 2;
-                                return Object(__WEBPACK_IMPORTED_MODULE_2__service_api__["e" /* wcReg */])('2018-2-28', '2018-4-30');
+                                return Object(__WEBPACK_IMPORTED_MODULE_2__service_api__["f" /* wcReg */])('2018-2-28', '2018-4-30');
 
                             case 2:
                                 res = _context3.sent;
@@ -80959,7 +80963,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                         switch (_context4.prev = _context4.next) {
                             case 0:
                                 _context4.next = 2;
-                                return Object(__WEBPACK_IMPORTED_MODULE_2__service_api__["d" /* wcBro */])('2018-2-28', '2018-4-30');
+                                return Object(__WEBPACK_IMPORTED_MODULE_2__service_api__["e" /* wcBro */])('2018-2-28', '2018-4-30');
 
                             case 2:
                                 res = _context4.sent;
@@ -80999,7 +81003,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                         switch (_context5.prev = _context5.next) {
                             case 0:
                                 _context5.next = 2;
-                                return Object(__WEBPACK_IMPORTED_MODULE_2__service_api__["c" /* userAuth */])('2018-2-28', '2018-4-30');
+                                return Object(__WEBPACK_IMPORTED_MODULE_2__service_api__["d" /* userAuth */])('2018-2-28', '2018-4-30');
 
                             case 2:
                                 res = _context5.sent;
@@ -81922,12 +81926,12 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                 localDate = nowDate.toLocaleDateString();
                                 strArr = localDate.split("/").join('-');
                                 _context.next = 5;
-                                return Object(__WEBPACK_IMPORTED_MODULE_5__service_api__["a" /* pcBro */])('2018-2-28', strArr);
+                                return Object(__WEBPACK_IMPORTED_MODULE_5__service_api__["b" /* pcBro */])('2018-2-28', strArr);
 
                             case 5:
                                 pcRes = _context.sent;
                                 _context.next = 8;
-                                return Object(__WEBPACK_IMPORTED_MODULE_5__service_api__["d" /* wcBro */])('2018-2-28', strArr);
+                                return Object(__WEBPACK_IMPORTED_MODULE_5__service_api__["e" /* wcBro */])('2018-2-28', strArr);
 
                             case 8:
                                 wcRes = _context.sent;
@@ -82429,7 +82433,7 @@ exports = module.exports = __webpack_require__(18)(false);
 
 
 // module
-exports.push([module.i, "\n.container[data-v-85ef4954] {\n    padding-top: 61px;\n}\n.custom-style-heading[data-v-85ef4954]{background-color:#ff4949;font-size:22px;color:#fff\n}\n.custom-style-body[data-v-85ef4954]{padding:0 15px;\n}\n.custom-style-body .row[data-v-85ef4954]{height:100px\n}\n.custom-style-body .col-md-6[data-v-85ef4954]{height:100%;padding:20px 15px;\n}\n.custom-style-body .col-md-6 p[data-v-85ef4954]{color:#aa0f0f;margin:5px 0 0 10px;font-size:28px;font-weight:500;overflow:hidden\n}\n", ""]);
+exports.push([module.i, "\n.container[data-v-85ef4954] {\n    padding-top: 61px;\n}\n.custom-style-panel[data-v-85ef4954]{border:none\n}\n.custom-style-heading[data-v-85ef4954]{background-color:#ff4949;font-size:20px;color:#fff\n}\n.custom-style-heading span[data-v-85ef4954]{font-size:14px\n}\n.custom-style-body[data-v-85ef4954]{padding:0 15px;\n}\n.custom-style-body .row[data-v-85ef4954]{height:100px\n}\n.custom-style-body .col-md-6[data-v-85ef4954]{height:100%;padding:20px 15px;\n}\n.custom-style-body .col-md-6 p[data-v-85ef4954]{color:#aa0f0f;margin:5px 0 0 10px;font-size:28px;font-weight:500;overflow:hidden\n}\n", ""]);
 
 // exports
 
@@ -82521,6 +82525,9 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
+//
+//
+//
 
 
 
@@ -82537,6 +82544,9 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
+            updated_at: '',
+            member_count: '',
+            profile_count: '',
             arrList1: [],
             arrList2: [],
             arrList3: [],
@@ -82604,11 +82614,13 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
         }
     },
     mounted: function mounted() {
+        this.amountNum();
         this.pcReg();
         this.pcBro();
         this.wcReg();
         this.wcBro();
         this.userAuth();
+        this.fetchDate();
     },
 
     methods: {
@@ -82638,21 +82650,58 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                 return v.date >= date[0] && v.date <= date[1];
             });
         },
-        pcReg: function () {
+        fetchDate: function fetchDate() {
+            var nowDate = new Date();
+            var localDate = nowDate.toLocaleDateString();
+            var strArr = localDate.split("/").join('-');
+            this.updated_at = strArr;
+        },
+        amountNum: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
-                var nowDate, localDate, strArr, res, data, k;
+                var res;
                 return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
                     while (1) {
                         switch (_context.prev = _context.next) {
                             case 0:
+                                _context.next = 2;
+                                return Object(__WEBPACK_IMPORTED_MODULE_9__service_api__["a" /* amountNum */])();
+
+                            case 2:
+                                res = _context.sent;
+
+                                // console.log(res)
+                                this.profile_count = res.data.profile_count;
+                                this.member_count = res.data.member_count;
+
+                            case 5:
+                            case 'end':
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this);
+            }));
+
+            function amountNum() {
+                return _ref.apply(this, arguments);
+            }
+
+            return amountNum;
+        }(),
+        pcReg: function () {
+            var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
+                var nowDate, localDate, strArr, res, data, k;
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+                    while (1) {
+                        switch (_context2.prev = _context2.next) {
+                            case 0:
                                 nowDate = new Date();
                                 localDate = nowDate.toLocaleDateString();
                                 strArr = localDate.split("/").join('-');
-                                _context.next = 5;
-                                return Object(__WEBPACK_IMPORTED_MODULE_9__service_api__["b" /* pcReg */])('2018-2-28', strArr);
+                                _context2.next = 5;
+                                return Object(__WEBPACK_IMPORTED_MODULE_9__service_api__["c" /* pcReg */])('2018-2-28', strArr);
 
                             case 5:
-                                res = _context.sent;
+                                res = _context2.sent;
 
                                 // console.log(res)
                                 data = res.data;
@@ -82675,33 +82724,33 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
                             case 13:
                             case 'end':
-                                return _context.stop();
+                                return _context2.stop();
                         }
                     }
-                }, _callee, this);
+                }, _callee2, this);
             }));
 
             function pcReg() {
-                return _ref.apply(this, arguments);
+                return _ref2.apply(this, arguments);
             }
 
             return pcReg;
         }(),
         pcBro: function () {
-            var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
+            var _ref3 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee3() {
                 var nowDate, localDate, strArr, res, data, k;
-                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
                     while (1) {
-                        switch (_context2.prev = _context2.next) {
+                        switch (_context3.prev = _context3.next) {
                             case 0:
                                 nowDate = new Date();
                                 localDate = nowDate.toLocaleDateString();
                                 strArr = localDate.split("/").join('-');
-                                _context2.next = 5;
-                                return Object(__WEBPACK_IMPORTED_MODULE_9__service_api__["a" /* pcBro */])('2018-2-28', strArr);
+                                _context3.next = 5;
+                                return Object(__WEBPACK_IMPORTED_MODULE_9__service_api__["b" /* pcBro */])('2018-2-28', strArr);
 
                             case 5:
-                                res = _context2.sent;
+                                res = _context3.sent;
 
                                 // console.log(res);
                                 data = res.data;
@@ -82724,33 +82773,33 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
                             case 12:
                             case 'end':
-                                return _context2.stop();
+                                return _context3.stop();
                         }
                     }
-                }, _callee2, this);
+                }, _callee3, this);
             }));
 
             function pcBro() {
-                return _ref2.apply(this, arguments);
+                return _ref3.apply(this, arguments);
             }
 
             return pcBro;
         }(),
         wcReg: function () {
-            var _ref3 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee3() {
+            var _ref4 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee4() {
                 var nowDate, localDate, strArr, res, data, k;
-                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
                     while (1) {
-                        switch (_context3.prev = _context3.next) {
+                        switch (_context4.prev = _context4.next) {
                             case 0:
                                 nowDate = new Date();
                                 localDate = nowDate.toLocaleDateString();
                                 strArr = localDate.split("/").join('-');
-                                _context3.next = 5;
-                                return Object(__WEBPACK_IMPORTED_MODULE_9__service_api__["e" /* wcReg */])('2018-2-28', strArr);
+                                _context4.next = 5;
+                                return Object(__WEBPACK_IMPORTED_MODULE_9__service_api__["f" /* wcReg */])('2018-2-28', strArr);
 
                             case 5:
-                                res = _context3.sent;
+                                res = _context4.sent;
 
                                 // console.log(res);
                                 data = res.data;
@@ -82773,33 +82822,33 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
                             case 12:
                             case 'end':
-                                return _context3.stop();
+                                return _context4.stop();
                         }
                     }
-                }, _callee3, this);
+                }, _callee4, this);
             }));
 
             function wcReg() {
-                return _ref3.apply(this, arguments);
+                return _ref4.apply(this, arguments);
             }
 
             return wcReg;
         }(),
         wcBro: function () {
-            var _ref4 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee4() {
+            var _ref5 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee5() {
                 var nowDate, localDate, strArr, res, data, k;
-                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee5$(_context5) {
                     while (1) {
-                        switch (_context4.prev = _context4.next) {
+                        switch (_context5.prev = _context5.next) {
                             case 0:
                                 nowDate = new Date();
                                 localDate = nowDate.toLocaleDateString();
                                 strArr = localDate.split("/").join('-');
-                                _context4.next = 5;
-                                return Object(__WEBPACK_IMPORTED_MODULE_9__service_api__["d" /* wcBro */])('2018-2-28', strArr);
+                                _context5.next = 5;
+                                return Object(__WEBPACK_IMPORTED_MODULE_9__service_api__["e" /* wcBro */])('2018-2-28', strArr);
 
                             case 5:
-                                res = _context4.sent;
+                                res = _context5.sent;
 
                                 // console.log(res);
                                 data = res.data;
@@ -82822,33 +82871,33 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
                             case 12:
                             case 'end':
-                                return _context4.stop();
+                                return _context5.stop();
                         }
                     }
-                }, _callee4, this);
+                }, _callee5, this);
             }));
 
             function wcBro() {
-                return _ref4.apply(this, arguments);
+                return _ref5.apply(this, arguments);
             }
 
             return wcBro;
         }(),
         userAuth: function () {
-            var _ref5 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee5() {
+            var _ref6 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee6() {
                 var nowDate, localDate, strArr, res, data, k;
-                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee5$(_context5) {
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee6$(_context6) {
                     while (1) {
-                        switch (_context5.prev = _context5.next) {
+                        switch (_context6.prev = _context6.next) {
                             case 0:
                                 nowDate = new Date();
                                 localDate = nowDate.toLocaleDateString();
                                 strArr = localDate.split("/").join('-');
-                                _context5.next = 5;
-                                return Object(__WEBPACK_IMPORTED_MODULE_9__service_api__["c" /* userAuth */])('2018-2-28', strArr);
+                                _context6.next = 5;
+                                return Object(__WEBPACK_IMPORTED_MODULE_9__service_api__["d" /* userAuth */])('2018-2-28', strArr);
 
                             case 5:
-                                res = _context5.sent;
+                                res = _context6.sent;
 
                                 // console.log(res);
                                 data = res.data;
@@ -82871,14 +82920,14 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
                             case 12:
                             case 'end':
-                                return _context5.stop();
+                                return _context6.stop();
                         }
                     }
-                }, _callee5, this);
+                }, _callee6, this);
             }));
 
             function userAuth() {
-                return _ref5.apply(this, arguments);
+                return _ref6.apply(this, arguments);
             }
 
             return userAuth;
@@ -83290,7 +83339,30 @@ var render = function() {
       _c("Header"),
       _vm._v(" "),
       _c("div", { staticClass: "container" }, [
-        _vm._m(0),
+        _c("div", { staticClass: "panel panel-default custom-style-panel" }, [
+          _c("div", { staticClass: "panel-heading custom-style-heading" }, [
+            _vm._v("\n                mime平台\n                "),
+            _c("span", [_vm._v("截至 " + _vm._s(_vm.updated_at) + " 为止：")])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "panel-body custom-style-body" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-md-6 col-xs-6 bg-success" }, [
+                _vm._v(
+                  "\n                        总认证人数（人）：\n                        "
+                ),
+                _c("p", [_vm._v(_vm._s(_vm.profile_count))])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-6 col-xs-6 bg-warning" }, [
+                _vm._v(
+                  "\n                        总注册人数（人）：\n                        "
+                ),
+                _c("p", [_vm._v(_vm._s(_vm.member_count))])
+              ])
+            ])
+          ])
+        ]),
         _vm._v(" "),
         _c("div", { staticClass: "panel panel-default" }, [
           _c("div", { staticClass: "panel-heading" }, [
@@ -83441,40 +83513,7 @@ var render = function() {
     1
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "panel panel-default", staticStyle: { display: "none" } },
-      [
-        _c("div", { staticClass: "panel-heading custom-style-heading" }, [
-          _vm._v("mime平台")
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "panel-body custom-style-body" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-md-6 col-xs-6 bg-success" }, [
-              _vm._v(
-                "\n                        总认证人数（人）：\n                        "
-              ),
-              _c("p")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-6 col-xs-6 bg-warning" }, [
-              _vm._v(
-                "\n                        总注册人数（人）：\n                        "
-              ),
-              _c("p")
-            ])
-          ])
-        ])
-      ]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -83683,12 +83722,12 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                 localDate = nowDate.toLocaleDateString();
                                 strArr = localDate.split("/").join('-');
                                 _context.next = 5;
-                                return Object(__WEBPACK_IMPORTED_MODULE_5__service_api__["b" /* pcReg */])('2018-2-28', strArr);
+                                return Object(__WEBPACK_IMPORTED_MODULE_5__service_api__["c" /* pcReg */])('2018-2-28', strArr);
 
                             case 5:
                                 pcRes = _context.sent;
                                 _context.next = 8;
-                                return Object(__WEBPACK_IMPORTED_MODULE_5__service_api__["e" /* wcReg */])('2018-2-28', strArr);
+                                return Object(__WEBPACK_IMPORTED_MODULE_5__service_api__["f" /* wcReg */])('2018-2-28', strArr);
 
                             case 8:
                                 wcRes = _context.sent;

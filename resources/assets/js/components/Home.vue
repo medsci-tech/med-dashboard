@@ -2,17 +2,20 @@
     <div>
         <Header></Header>
         <div class="container">
-            <div class="panel panel-default" style="display:none">
-                <div class="panel-heading custom-style-heading">mime平台</div>
+            <div class="panel panel-default custom-style-panel">
+                <div class="panel-heading custom-style-heading">
+                    mime平台
+                    <span>截至 {{updated_at}} 为止：</span>
+                </div>
                 <div class="panel-body custom-style-body">
                     <div class="row">
                         <div class="col-md-6 col-xs-6 bg-success">
                             总认证人数（人）：
-                            <p></p>
+                            <p>{{profile_count}}</p>
                         </div>
                         <div class="col-md-6 col-xs-6 bg-warning">
                             总注册人数（人）：
-                            <p></p>
+                            <p>{{member_count}}</p>
                         </div>
                     </div>
                 </div>
@@ -67,11 +70,14 @@
     import 'v-charts/lib/style.css'
     //使用工具箱需引入对应模块
     import 'echarts/lib/component/toolbox'
-    import {pcReg,pcBro,wcReg,wcBro,userAuth} from '../service/api'
+    import {pcReg,pcBro,wcReg,wcBro,userAuth,amountNum} from '../service/api'
 
     export default {
         data() {
             return {
+                updated_at:'',
+                member_count: '',
+                profile_count: '',
                 arrList1: [],
                 arrList2: [],
                 arrList3: [],
@@ -138,11 +144,13 @@
             },
         },
         mounted() {
+            this.amountNum();
             this.pcReg();
             this.pcBro();
             this.wcReg();
             this.wcBro();
             this.userAuth();
+            this.fetchDate();
         },
         methods: {
             getDate1(date) {
@@ -170,6 +178,18 @@
                 this.chartData5.rows = this.arrList5.filter((v) => {
                     return v.date >= date[0] && v.date <= date[1];
                 });
+            },
+            fetchDate() {
+                let nowDate = new Date();
+                let localDate = nowDate.toLocaleDateString();
+                let strArr = localDate.split("/").join('-');
+                this.updated_at = strArr;
+            },
+            async amountNum() {
+                let res = await amountNum();
+                // console.log(res)
+                this.profile_count = res.data.profile_count;
+                this.member_count = res.data.member_count;
             },
             async pcReg() {
                 let nowDate = new Date();
@@ -295,7 +315,9 @@
     .container {
         padding-top: 61px;
     }
-    .custom-style-heading{background-color:#ff4949;font-size:22px;color:#fff}
+    .custom-style-panel{border:none}
+    .custom-style-heading{background-color:#ff4949;font-size:20px;color:#fff}
+    .custom-style-heading span{font-size:14px}
     .custom-style-body{padding:0 15px;}
     .custom-style-body .row{height:100px}
     .custom-style-body .col-md-6{height:100%;padding:20px 15px;}

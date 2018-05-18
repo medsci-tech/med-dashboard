@@ -30,6 +30,7 @@ Route::group(['prefix' => 'statistics/mime'], function () {
     Route::any('register', 'Dashboard\RegisterController@handleRequest');
     Route::any('dau', 'Dashboard\DAUController@handleRequest');
     Route::any('profile', 'Dashboard\ProfileController@handleRequest');
+    Route::any('statistics', 'Dashboard\MimeStatisticsController@handleRequest');
 
     Route::any('wechat-register', 'Dashboard\WechatRegisterController@handleRequest');
     Route::any('wechat-dau', 'Dashboard\WechatDAUController@handleRequest');
